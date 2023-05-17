@@ -1,0 +1,64 @@
+define([], function anonymous(
+) {
+var pluralFuncs = {
+  pt: function(n, ord) {
+    var s = String(n).split('.'), t0 = Number(s[0]) == n;
+    if (ord) return 'other';
+    return ((t0 && n >= 0 && n <= 2) && n != 2) ? 'one' : 'other';
+  }
+};
+var fmt = {};
+var number = function(value, offset) {
+  if (isNaN(value)) throw new Error("'" + value + "' isn't a number.");
+  return value - (offset || 0);
+};
+var plural = function(value, offset, lcfunc, data, isOrdinal) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  if (offset) value -= offset;
+  var key = lcfunc(value, isOrdinal);
+  if (key in data) return data[key]();
+  return data.other();
+};
+var select = function(value, data) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  return data.other()
+};
+
+return {
+  "stjude.automatically_round_up": function(d) { return ""; },
+  "stjude.automatically_round_up_error": function(d) { return ""; },
+  "stjude.automatically_round_up_good": function(d) { return ""; },
+  "stjude.give_a_gift": function(d) { return ""; },
+  "stjude.give_to_help_live": function(d) { return ""; },
+  "stjude.logo_alt_text": function(d) { return "St. Jude Logo"; },
+  "stjude.order_now_and_donate": function(d) { return ""; },
+  "stjude.roundup_always": function(d) { return ""; },
+  "stjude.roundup_be_the_hero": function(d) { return ""; },
+  "stjude.roundup_cent_donate": function(d) { return ""; },
+  "stjude.roundup_cent_now": function(d) { return ""; },
+  "stjude.roundup_cents_now": function(d) { return ""; },
+  "stjude.roundup_donate_to_st_jude": function(d) { return ""; },
+  "stjude.roundup_join_in": function(d) { return ""; },
+  "stjude.roundup_opt_in_to_automatically_round_up": function(d) { return ""; },
+  "stjude.roundup_would_you_like_to_donate": function(d) { return ""; },
+  "stjude.roundup_yes_add": function(d) { return ""; },
+  "stjude.roundup_yes_donate": function(d) { return ""; },
+  "stjude.roundup_yes_round_up_today": function(d) { return ""; },
+  "stjude.social_share_headline": function(d) { return ""; },
+  "stjude.social_share_subtext": function(d) { return ""; },
+  "stjude.thermometer_status_full": function(d) { return ""; },
+  "stjude.thermometer_status_left_1": function(d) { return ""; },
+  "stjude.thermometer_status_left_2": function(d) { return ""; },
+  "stjude.thermometer_status_right": function(d) { return ""; },
+  "stjude.thermometer_title": function(d) { return ""; },
+  "stjude.thermometer_title_label": function(d) { return ""; },
+  "stjude.upsell_description_no_coupon": function(d) { return ""; },
+  "stjude.upsell_description_with_coupon": function(d) { return ""; },
+  "stjude.upsell_error_donation_too_much": function(d) { return ""; },
+  "stjude.upsell_error_zero_donation": function(d) { return ""; },
+  "stjude.upsell_stjude_benefits": function(d) { return ""; },
+  "stjude.upsell_stjude_operating_cost": function(d) { return ""; },
+  "stjude.upsell_title": function(d) { return ""; }
+}
+}
+);

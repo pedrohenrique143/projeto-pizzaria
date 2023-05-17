@@ -1,0 +1,69 @@
+define([], function anonymous(
+) {
+var pluralFuncs = {
+  pt: function(n, ord) {
+    var s = String(n).split('.'), t0 = Number(s[0]) == n;
+    if (ord) return 'other';
+    return ((t0 && n >= 0 && n <= 2) && n != 2) ? 'one' : 'other';
+  }
+};
+var fmt = {};
+var number = function(value, offset) {
+  if (isNaN(value)) throw new Error("'" + value + "' isn't a number.");
+  return value - (offset || 0);
+};
+var plural = function(value, offset, lcfunc, data, isOrdinal) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  if (offset) value -= offset;
+  var key = lcfunc(value, isOrdinal);
+  if (key in data) return data[key]();
+  return data.other();
+};
+var select = function(value, data) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  return data.other()
+};
+
+return {
+  "date.months_april": function(d) { return "Abril"; },
+  "date.months_august": function(d) { return "Agosto"; },
+  "date.months_december": function(d) { return "Dezembro"; },
+  "date.months_february": function(d) { return "Fevereiro"; },
+  "date.months_january": function(d) { return "Janeiro"; },
+  "date.months_july": function(d) { return "Julho"; },
+  "date.months_june": function(d) { return "Junho"; },
+  "date.months_march": function(d) { return "Março"; },
+  "date.months_may": function(d) { return "Maio"; },
+  "date.months_november": function(d) { return "Novembro"; },
+  "date.months_october": function(d) { return "Outubro"; },
+  "date.months_september": function(d) { return "Setembro"; },
+  "date.short_months_april": function(d) { return "abril"; },
+  "date.short_months_august": function(d) { return "agosto"; },
+  "date.short_months_december": function(d) { return "dez."; },
+  "date.short_months_february": function(d) { return "fev."; },
+  "date.short_months_january": function(d) { return "jan."; },
+  "date.short_months_july": function(d) { return "julho"; },
+  "date.short_months_june": function(d) { return "junho"; },
+  "date.short_months_march": function(d) { return "março"; },
+  "date.short_months_may": function(d) { return "maio"; },
+  "date.short_months_november": function(d) { return "nov."; },
+  "date.short_months_october": function(d) { return "out."; },
+  "date.short_months_september": function(d) { return "set."; },
+  "date.short_weekdays": function(d) { return ", , , , , , "; },
+  "date.short_weekdays_friday": function(d) { return "Sex"; },
+  "date.short_weekdays_monday": function(d) { return "Seg"; },
+  "date.short_weekdays_saturday": function(d) { return "Sab"; },
+  "date.short_weekdays_sunday": function(d) { return "Dom"; },
+  "date.short_weekdays_thursday": function(d) { return "Qui"; },
+  "date.short_weekdays_tuesday": function(d) { return "Ter"; },
+  "date.short_weekdays_wednesday": function(d) { return "Qua"; },
+  "date.weekdays_friday": function(d) { return "Sexta-Feira"; },
+  "date.weekdays_monday": function(d) { return "Segunda-feira"; },
+  "date.weekdays_saturday": function(d) { return "Sábado"; },
+  "date.weekdays_sunday": function(d) { return "Domingo"; },
+  "date.weekdays_thursday": function(d) { return "Quinta- Feira"; },
+  "date.weekdays_tuesday": function(d) { return "Terça-feira"; },
+  "date.weekdays_wednesday": function(d) { return "Quarta-feira"; }
+}
+}
+);

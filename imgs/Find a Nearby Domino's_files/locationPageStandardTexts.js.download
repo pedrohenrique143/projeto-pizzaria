@@ -1,0 +1,89 @@
+define("markettemplates/locationPageStandardTexts", [
+    "marketconfig/dpz.lang.locations",
+    "marketconfig/dpz.lang.forms",
+    "handlebars.runtime"
+], function(locationsStrings, formsStrings, Handlebars) {
+      return { name: "locationPageStandardTexts", template: Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    return "form__control-group--icons";
+},"3":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable, alias2=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return " <h3 class=\"js-nearestStoreLabel\"> "
+    + container.escapeExpression(helpers.t.call(
+      alias2,
+      "locations.we_just_need_to_know",
+      {"name":"t","hash":{},"data":data},
+      locationsStrings
+  ))
+    + " </h3> "
+    + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.displaySignInMessage : depth0),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " ";
+},"4":function(container,depth0,helpers,partials,data) {
+    var alias1=container.propertyIsEnumerable, alias2=depth0 != null ? depth0 : (container.nullContext || {}), alias3=container.escapeExpression;
+
+  return " <h3 class=\"js-locatorChangeLoginState\"> <div class=\"js-changeLoginState\"> "
+    + alias3(helpers.t.call(
+      alias2,
+      "locations.to_your_pizza_profile_prefix",
+      {"name":"t","hash":{},"data":data},
+      locationsStrings
+  ))
+    + " <a style=\"\" class=\"link-button--sign-in link-button--sign-in--locator js-login-locator\" href=\""
+    + alias3(container.lambda((depth0 != null ? depth0.ctx : depth0), depth0))
+    + "/pages/customer/#!/customer/login/\"> "
+    + alias3(helpers.t.call(alias2, "forms.sign_in", {"name":"t","hash":{},"data":data}, formsStrings))
+    + " </a> "
+    + alias3(helpers.t.call(
+      alias2,
+      "locations.to_your_pizza_profile_to",
+      {"name":"t","hash":{},"data":data},
+      locationsStrings
+  ))
+    + " </div> </h3> ";
+},"6":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable;
+
+  return " <h3 class=\"location-search__recent-addresses-heading\">"
+    + container.escapeExpression(helpers.t.call(
+      depth0 != null ? depth0 : (container.nullContext || {}),
+      "locations.ecom39886_recent_addresses",
+      {"name":"t","hash":{},"data":data},
+      locationsStrings
+  ))
+    + "</h3> <div class=\"js-entryList entryList profile-list\"> "
+    + ((stack1 = container.lambda((depth0 != null ? depth0.addressList : depth0), depth0)) != null ? stack1 : "")
+    + " </div> ";
+},"8":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "  <div class=\"js-entryList entryList profile-list\"> "
+    + ((stack1 = container.lambda((depth0 != null ? depth0.addressList : depth0), depth0)) != null ? stack1 : "")
+    + " </div>  ";
+},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable, alias2=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return "<div class=\"js-hidden-container "
+    + ((stack1 = helpers.unless.call(alias2,(depth0 != null ? depth0.serviceMethodButtonsHidden : depth0),{"name":"unless","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " is-hidden\"> <fieldset class=\"fieldset--reset\"> <legend class=\"is-visually-hidden\"> "
+    + container.escapeExpression(helpers.t.call(
+      alias2,
+      "locations.address",
+      {"name":"t","hash":{},"data":data},
+      locationsStrings
+  ))
+    + " </legend> "
+    + ((stack1 = helpers.ifKillSwitch.call(alias2,"signInLanguageOnStoreLocator",{"name":"ifKillSwitch","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "   "
+    + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.showRecentOrderAddresses : depth0),{"name":"if","hash":{},"fn":container.program(6, data, 0),"inverse":container.program(8, data, 0),"data":data})) != null ? stack1 : "")
+    + "  "
+    + ((stack1 = container.lambda((depth0 != null ? depth0.otherAddress : depth0), depth0)) != null ? stack1 : "")
+    + " <div class=\"form__control-group grid\"> <div class=\"grid__cell--1 note\"> "
+    + ((stack1 = helpers.t.call(
+      alias2,
+      "locations.dont_see_your_street_name",
+      {"name":"t","hash":{},"data":data},
+      locationsStrings
+  )) != null ? stack1 : "")
+    + " </div> </div> </fieldset> </div>";
+},"useData":true}) };
+    });

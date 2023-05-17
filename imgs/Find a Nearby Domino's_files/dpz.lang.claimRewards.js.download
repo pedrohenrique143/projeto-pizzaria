@@ -1,0 +1,137 @@
+define([], function anonymous(
+) {
+var pluralFuncs = {
+  pt: function(n, ord) {
+    var s = String(n).split('.'), t0 = Number(s[0]) == n;
+    if (ord) return 'other';
+    return ((t0 && n >= 0 && n <= 2) && n != 2) ? 'one' : 'other';
+  }
+};
+var fmt = {};
+var number = function(value, offset) {
+  if (isNaN(value)) throw new Error("'" + value + "' isn't a number.");
+  return value - (offset || 0);
+};
+var plural = function(value, offset, lcfunc, data, isOrdinal) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  if (offset) value -= offset;
+  var key = lcfunc(value, isOrdinal);
+  if (key in data) return data[key]();
+  return data.other();
+};
+var select = function(value, data) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  return data.other()
+};
+
+return {
+  "claimRewards.activate_rewards": function(d) { return ""; },
+  "claimRewards.activate_rewards_existing_profile": function(d) { return ""; },
+  "claimRewards.activate_rewards_legal": function(d) { return ""; },
+  "claimRewards.activate_rewards_new_profile": function(d) { return ""; },
+  "claimRewards.alert": function(d) { return ""; },
+  "claimRewards.almost_there": function(d) { return ""; },
+  "claimRewards.back": function(d) { return ""; },
+  "claimRewards.bonus_activation_activate": function(d) { return ""; },
+  "claimRewards.bonus_activation_already_activated_header": function(d) { return ""; },
+  "claimRewards.bonus_activation_customer_not_part_of_campaign": function(d) { return ""; },
+  "claimRewards.bonus_activation_details": function(d) { return ""; },
+  "claimRewards.bonus_activation_email_placeholder": function(d) { return ""; },
+  "claimRewards.bonus_activation_expired": function(d) { return ""; },
+  "claimRewards.bonus_activation_expired_message": function(d) { return ""; },
+  "claimRewards.bonus_activation_extra_info": function(d) { return ""; },
+  "claimRewards.bonus_activation_generic_header": function(d) { return ""; },
+  "claimRewards.bonus_activation_great_news": function(d) { return ""; },
+  "claimRewards.bonus_activation_header1": function(d) { return ""; },
+  "claimRewards.bonus_activation_header2": function(d) { return ""; },
+  "claimRewards.bonus_activation_internal_processing_error": function(d) { return ""; },
+  "claimRewards.bonus_activation_internal_processing_message": function(d) { return ""; },
+  "claimRewards.bonus_activation_oops": function(d) { return ""; },
+  "claimRewards.bonus_activation_order_now": function(d) { return ""; },
+  "claimRewards.bonus_activation_other_deals": function(d) { return ""; },
+  "claimRewards.bonus_activation_rewards_history": function(d) { return ""; },
+  "claimRewards.bonus_activation_sorry": function(d) { return ""; },
+  "claimRewards.bonus_activation_success": function(d) { return ""; },
+  "claimRewards.bonus_activation_success_header": function(d) { return ""; },
+  "claimRewards.bonus_activation_success_not_a_member": function(d) { return ""; },
+  "claimRewards.box_label_1": function(d) { return ""; },
+  "claimRewards.box_label_2": function(d) { return ""; },
+  "claimRewards.box_label_3": function(d) { return ""; },
+  "claimRewards.claim_info_box_label": function(d) { return ""; },
+  "claimRewards.claim_info_disclaimer": function(d) { return ""; },
+  "claimRewards.claim_info_email": function(d) { return ""; },
+  "claimRewards.claim_info_receipt": function(d) { return ""; },
+  "claimRewards.claim_now": function(d) { return ""; },
+  "claimRewards.claim_points": function(d) { return ""; },
+  "claimRewards.claim_rewards": function(d) { return ""; },
+  "claimRewards.claim_your_rewards": function(d) { return ""; },
+  "claimRewards.confirmation_banner_header": function(d) { return ""; },
+  "claimRewards.confirmation_banner_subheader": function(d) { return ""; },
+  "claimRewards.confirmation_cta_order_online": function(d) { return ""; },
+  "claimRewards.confirmation_cta_view_profile": function(d) { return ""; },
+  "claimRewards.confirmation_cta_view_tracker": function(d) { return ""; },
+  "claimRewards.confirmation_disclaimer": function(d) { return ""; },
+  "claimRewards.confirmation_email": function(d) { return ""; },
+  "claimRewards.confirmation_header": function(d) { return ""; },
+  "claimRewards.confirmation_note_orders_must_be_ten_or_more": function(d) { return ""; },
+  "claimRewards.confirmation_points_claimed": function(d) { return ""; },
+  "claimRewards.confirmation_popup_free_pizza": function(d) { return ""; },
+  "claimRewards.confirmation_popup_header": function(d) { return ""; },
+  "claimRewards.confirmation_popup_subheader": function(d) { return ""; },
+  "claimRewards.confirmation_still_earn_points": function(d) { return ""; },
+  "claimRewards.confirmation_subheader": function(d) { return ""; },
+  "claimRewards.contact_us": function(d) { return ""; },
+  "claimRewards.create_profile_benefits": function(d) { return ""; },
+  "claimRewards.create_your_profile": function(d) { return ""; },
+  "claimRewards.customer_claim_attempts_error": function(d) { return ""; },
+  "claimRewards.customer_monthly_claim_error": function(d) { return ""; },
+  "claimRewards.customer_not_enrolled_error": function(d) { return ""; },
+  "claimRewards.deny_activate_rewards_existing_profile": function(d) { return ""; },
+  "claimRewards.deny_activate_rewards_new_profile": function(d) { return ""; },
+  "claimRewards.details_claim_points_anonymous": function(d) { return ""; },
+  "claimRewards.details_claim_points_profiled": function(d) { return ""; },
+  "claimRewards.digital_order_not_found_error": function(d) { return ""; },
+  "claimRewards.enter_info_recent_order": function(d) { return ""; },
+  "claimRewards.example_box_label_1": function(d) { return ""; },
+  "claimRewards.example_box_label_2": function(d) { return ""; },
+  "claimRewards.example_box_label_3": function(d) { return ""; },
+  "claimRewards.example_confirmation_email": function(d) { return ""; },
+  "claimRewards.example_receipt_1": function(d) { return ""; },
+  "claimRewards.example_receipt_2": function(d) { return ""; },
+  "claimRewards.faq_link": function(d) { return ""; },
+  "claimRewards.find_this_info_details": function(d) { return ""; },
+  "claimRewards.got_it": function(d) { return ""; },
+  "claimRewards.guest_loyalty_icon": function(d) { return ""; },
+  "claimRewards.guest_profile_icon": function(d) { return ""; },
+  "claimRewards.locate_order_details": function(d) { return ""; },
+  "claimRewards.not_qualified": function(d) { return ""; },
+  "claimRewards.or": function(d) { return ""; },
+  "claimRewards.order_claimed_error": function(d) { return ""; },
+  "claimRewards.order_details": function(d) { return ""; },
+  "claimRewards.order_expired_error": function(d) { return ""; },
+  "claimRewards.order_not_found_error": function(d) { return ""; },
+  "claimRewards.order_number": function(d) { return ""; },
+  "claimRewards.order_receipt_1": function(d) { return ""; },
+  "claimRewards.order_receipt_2": function(d) { return ""; },
+  "claimRewards.points_not_claimed": function(d) { return ""; },
+  "claimRewards.profile_required_already_have_profile": function(d) { return ""; },
+  "claimRewards.profile_required_claim_your_points": function(d) { return ""; },
+  "claimRewards.profile_required_create_profile": function(d) { return ""; },
+  "claimRewards.profile_required_header": function(d) { return ""; },
+  "claimRewards.profile_required_header_enroll": function(d) { return ""; },
+  "claimRewards.profile_required_header_pop": function(d) { return ""; },
+  "claimRewards.profile_required_header_rewards": function(d) { return ""; },
+  "claimRewards.profile_required_subheader": function(d) { return ""; },
+  "claimRewards.profile_required_terms": function(d) { return ""; },
+  "claimRewards.questions": function(d) { return ""; },
+  "claimRewards.rewards_code": function(d) { return ""; },
+  "claimRewards.rewards_home": function(d) { return ""; },
+  "claimRewards.show_me": function(d) { return ""; },
+  "claimRewards.sign_in": function(d) { return ""; },
+  "claimRewards.sign_in_to_claim_rewards": function(d) { return ""; },
+  "claimRewards.sign_in_to_your_pizza": function(d) { return ""; },
+  "claimRewards.to_qualify": function(d) { return ""; },
+  "claimRewards.unknown_error": function(d) { return ""; }
+}
+}
+);

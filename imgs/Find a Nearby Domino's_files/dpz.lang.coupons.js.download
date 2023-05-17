@@ -1,0 +1,38 @@
+define([], function anonymous(
+) {
+var pluralFuncs = {
+  pt: function(n, ord) {
+    var s = String(n).split('.'), t0 = Number(s[0]) == n;
+    if (ord) return 'other';
+    return ((t0 && n >= 0 && n <= 2) && n != 2) ? 'one' : 'other';
+  }
+};
+var fmt = {};
+var number = function(value, offset) {
+  if (isNaN(value)) throw new Error("'" + value + "' isn't a number.");
+  return value - (offset || 0);
+};
+var plural = function(value, offset, lcfunc, data, isOrdinal) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  if (offset) value -= offset;
+  var key = lcfunc(value, isOrdinal);
+  if (key in data) return data[key]();
+  return data.other();
+};
+var select = function(value, data) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  return data.other()
+};
+
+return {
+  "coupons.coupon_removed": function(d) { return ""; },
+  "coupons.valid_at_time": function(d) { return "* Valid after " + d.effectiveAt; },
+  "coupons.valid_at_until_time": function(d) { return "* Valid at " + d.effectiveAt + " until " + d.expiresAt; },
+  "coupons.valid_from_date": function(d) { return "* Valid from " + d.effectiveOn; },
+  "coupons.valid_from_to_date": function(d) { return "* Valid from " + d.effectiveOn + " to " + d.expiresOn; },
+  "coupons.valid_on_days": function(d) { return "* Valid on " + d.days + " only"; },
+  "coupons.valid_until_date": function(d) { return "* Valid until " + d.expiresOn; },
+  "coupons.valid_until_time": function(d) { return "* Valid before " + d.expiresAt; }
+}
+}
+);

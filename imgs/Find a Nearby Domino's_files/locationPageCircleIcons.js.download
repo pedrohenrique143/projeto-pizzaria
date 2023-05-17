@@ -1,0 +1,141 @@
+define("markettemplates/locationPageCircleIcons", [
+    "marketconfig/dpz.lang.locations",
+    "handlebars.runtime",
+    "dpz.template",
+    "dpz.layout",
+    "markettemplates/hotspotsIcon"
+], function(locationsStrings, Handlebars, dpzTemplate, dpzLayout) {
+    for (var _len = arguments.length, partials = new Array(_len > 4 ? _len - 4 : 0), _key = 4; _key < _len; _key++) {
+      partials[_key - 4] = arguments[_key];
+    }
+    dpzTemplate.set(partials.map(function (partial) {
+      var name = partial.name;
+      var template = partial.template;
+      return {
+        name: name,
+        template: dpzLayout.create(template)
+      };
+    }));
+    return { name: "locationPageCircleIcons", template: Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+  var stack1, alias1=container.propertyIsEnumerable, alias2=depth0 != null ? depth0 : (container.nullContext || {}), alias3=container.lambda, alias4=container.escapeExpression;
+
+return " <input id=\"Service_Type_Delivery\" type=\"radio\" name=\"Service_Type\" value=\"Delivery\" "
+  + ((stack1 = helpers.unless.call(alias2,(depth0 != null ? depth0.isDeliveryDisabled : depth0),{"name":"unless","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  + " "
+  + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.isDeliveryDisabled : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  + " /> <label for=\"Service_Type_Delivery\" class=\"js-delivery c-locationsearch-delivery\" data-dpz-track-evt data-dpz-track-evt-category=\"form-control\"> <span aria-hidden=\"true\" data-quid=\"easy-order-locator-delivery\" class=\"Delivery c-delivery circ-icons__icon "
+  + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.isDeliveryDisabled : depth0),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  + " circ-icons__icon--delivery\"> <img alt=\"\" src=\""
+  + alias4(alias3((depth0 != null ? depth0.market_assets_ctx : depth0), depth0))
+  + "/images/bkg/icons/icon-delivery-white.svg\" /> </span> <span class=\"circ-icons__txt\"> "
+  + alias4(helpers.t.call(
+    alias2,
+    "locations.delivery",
+    {"name":"t","hash":{},"data":data},
+    locationsStrings
+))
+  + " </span> "
+  + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.isDeliveryDisabled : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  + " </label> <span class=\"circ-icons__or\" aria-hidden=\"true\">"
+  + alias4(helpers.t.call(
+    alias2,
+    "locations.or",
+    {"name":"t","hash":{},"data":data},
+    locationsStrings
+))
+  + "</span> <input id=\"Service_Type_Carryout\" type=\"radio\" name=\"Service_Type\" value=\"Carryout\" "
+  + ((stack1 = helpers.unless.call(alias2,(depth0 != null ? depth0.isCarryoutDisabled : depth0),{"name":"unless","hash":{},"fn":container.program(11, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  + " "
+  + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.isCarryoutDisabled : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  + " /> <label for=\"Service_Type_Carryout\" class=\"js-carryout c-locationsearch-carryout\" data-dpz-track-evt data-dpz-track-evt-category=\"form-control\"> <span aria-hidden=\"true\" data-quid=\"easy-order-locator-carryout\" class=\"Carryout c-carryout circ-icons__icon "
+  + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.isCarryoutDisabled : depth0),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  + " circ-icons__icon--carryout\"> <img alt=\"\" src=\""
+  + alias4(alias3((depth0 != null ? depth0.market_assets_ctx : depth0), depth0))
+  + "/images/bkg/icons/icon-carryout-white.svg\" /> </span> <span class=\"circ-icons__txt\"> "
+  + ((stack1 = helpers.ifKillSwitch.call(alias2,"dineIn",{"name":"ifKillSwitch","hash":{},"fn":container.program(13, data, 0),"inverse":container.program(15, data, 0),"data":data})) != null ? stack1 : "")
+  + " </span> "
+  + ((stack1 = helpers.ifKillSwitch.call(alias2,"9eeb46f9-8d39-4b3a-b2cc-1b2e4921f73d",{"name":"ifKillSwitch","hash":{},"fn":container.program(17, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  + " "
+  + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.isCarryoutDisabled : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  + " </label>  "
+  + ((stack1 = helpers.unless.call(alias2,(depth0 != null ? depth0.isInEasyOrderFlow : depth0),{"name":"unless","hash":{},"fn":container.program(19, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  + " "
+  + ((stack1 = helpers.ifKillSwitch.call(alias2,"961feffa-380b-41c1-94e2-4490004eabaa",{"name":"ifKillSwitch","hash":{},"fn":container.program(20, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  + "  ";
+},"2":function(container,depth0,helpers,partials,data) {
+  var stack1, alias1=container.propertyIsEnumerable;
+
+return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.isDelivery : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"3":function(container,depth0,helpers,partials,data) {
+  return "checked";
+},"5":function(container,depth0,helpers,partials,data) {
+  return "disabled";
+},"7":function(container,depth0,helpers,partials,data) {
+  return "circ-icons__icon--disabled";
+},"9":function(container,depth0,helpers,partials,data) {
+  return " <span class=\"circ-icons__disabled-warning\"> "
+  + container.escapeExpression(helpers.t.call(
+      depth0 != null ? depth0 : (container.nullContext || {}),
+      "locations.temporarily_disabled",
+      {"name":"t","hash":{},"data":data},
+      locationsStrings
+  ))
+  + " </span> ";
+},"11":function(container,depth0,helpers,partials,data) {
+  var stack1, alias1=container.propertyIsEnumerable;
+
+return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.isCarryout : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"13":function(container,depth0,helpers,partials,data) {
+  return " "
+  + container.escapeExpression(helpers.t.call(
+      depth0 != null ? depth0 : (container.nullContext || {}),
+      "locations.dine_in",
+      {"name":"t","hash":{},"data":data},
+      locationsStrings
+  ))
+  + " ";
+},"15":function(container,depth0,helpers,partials,data) {
+  return " "
+  + container.escapeExpression(helpers.t.call(
+      depth0 != null ? depth0 : (container.nullContext || {}),
+      "locations.carryout",
+      {"name":"t","hash":{},"data":data},
+      locationsStrings
+  ))
+  + " ";
+},"17":function(container,depth0,helpers,partials,data) {
+  return " <span class=\"circ-icons__whenso-drive_up_carryout_option\"> "
+  + container.escapeExpression(helpers.t.call(
+      depth0 != null ? depth0 : (container.nullContext || {}),
+      "locations.whenso_drive_up_carryout_option",
+      {"name":"t","hash":{},"data":data},
+      locationsStrings
+  ))
+  + " </span> ";
+},"19":function(container,depth0,helpers,partials,data) {
+  var stack1, alias1=container.propertyIsEnumerable;
+
+return " "
+  + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.showHotspots : depth0),{"name":"if","hash":{},"fn":container.program(20, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  + " ";
+},"20":function(container,depth0,helpers,partials,data) {
+  return " "
+  + container.escapeExpression(helpers.prt.call(depth0 != null ? depth0 : (container.nullContext || {}),"hotspotsIcon",{"name":"prt","hash":{},"data":data}))
+  + " ";
+},"22":function(container,depth0,helpers,partials,data) {
+  return " <label style=\"display:none\"> <span class=\"Locations js-locations\"> <input type=\"radio\" name=\"Service_Type\" value=\"Locations\" /> </span> <span> "
+  + container.escapeExpression(helpers.t.call(
+      depth0 != null ? depth0 : (container.nullContext || {}),
+      "locations.locations",
+      {"name":"t","hash":{},"data":data},
+      locationsStrings
+  ))
+  + " </span> </label> ";
+},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+  var stack1, alias1=container.propertyIsEnumerable;
+
+return "<div class=\"form__control-group circ-icons\" role=\"group\" aria-labelledby=\"location-get-started\"> "
+  + ((stack1 = helpers.unless.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.isLocationsPage : depth0),{"name":"unless","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(22, data, 0),"data":data})) != null ? stack1 : "")
+  + " </div> ";
+},"useData":true}) };
+});

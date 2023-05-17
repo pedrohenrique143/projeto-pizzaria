@@ -1,0 +1,29 @@
+define("markettemplates/googleMapsSearchBar", ["marketconfig/dpz.lang.locations", "handlebars.runtime"], function(locationsStrings, Handlebars) {
+      return { name: "googleMapsSearchBar", template: Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    return "floating-label";
+},"3":function(container,depth0,helpers,partials,data) {
+    return "<label for=\"cityFinder\" data-state=\"floating\">"
+    + container.escapeExpression(helpers.t.call(
+        depth0 != null ? depth0 : (container.nullContext || {}),
+        "locations.enter_location",
+        {"name":"t","hash":{},"data":data},
+        locationsStrings
+    ))
+    + "</label>";
+},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable, alias2=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return "<div class=\"js-searchboxContainer map__controls map__city-finder is-hidden\"> <div class=\"map-searchbox "
+    + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.floatingLabelTextbox : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "\"> <input id=\"cityFinder\" class=\"js-searchbox map-searchbox__input\" data-quid=\"map__controls--search-input\" type=\"text\" data-state=\"floating\" placeholder=\""
+    + container.escapeExpression(helpers.t.call(
+      alias2,
+      "locations.enter_location",
+      {"name":"t","hash":{},"data":data},
+      locationsStrings
+  ))
+    + "\" /> "
+    + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.floatingLabelTextbox : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " <button type=\"button\" class=\"js-searchboxButton btn map-searchbox__button\" data-quid=\"map-searchbox-cta\"> <svg class=\"map-searchbox__button-icon\" viewBox=\"0 0 24 24\"> <path d=\"M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z\" /> </svg> </button> </div> </div>";
+},"useData":true}) };
+    });

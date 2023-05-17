@@ -1,0 +1,265 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+
+.logo img{
+    width: 100px;
+    display: flex;
+    margin-left: 10px;
+}
+
+.menu{
+    display: flex;
+}
+
+.menu button{
+    border: none;
+    background-color: red;
+    padding: 10px 20px;
+    color: white;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.o{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 1px 1px 7px black;
+    text-align: center;
+   
+}
+
+ul{
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    overflow: none;
+    margin-right: 25em;
+    gap: 5rem;
+    color: black;
+}
+
+ul a{
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+
+.monte img{
+    border-radius: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: .55s;
+}
+
+.monte img:hover{
+    transform: translateY(-7px);
+}
+
+.alerta{
+    margin-top: 20px;
+}
+
+.txt-header{
+    color: black;
+    font-size: 30px;
+}
+
+.txt-header h3{
+    background-color: #006491;
+    margin-top: 20px;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+.card1{
+    text-align: center;
+    align-items: center;
+    margin-top: 13px;
+}
+
+.card1 button{
+    margin-top: 13px;
+    transition: .55s;
+    background-color: red;
+   
+}
+
+.card1 button a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 19px;
+  
+}
+
+.card1 button:hover{
+   background-color:rgb(185, 9, 9);
+    
+}
+
+
+.card1 h2{
+   margin-top: 10px;
+   color: #006491;
+}
+
+.card1 h2:hover{
+    color: #E31837;
+    cursor: pointer;
+}
+
+.image img{
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
+.navbar{
+    text-align: center;
+    align-items: center;
+}
+
+.navlist{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+
+.navbar{
+    align-items: center;
+    text-align: center;
+    gap: 15rem;
+}
+
+.image img{
+    width: 100px;
+}
+
+.text h3{
+    background-color: #006491;
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+.espe{
+    background-color: #006491;
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+.tabela{
+    margin-top: 20px;
+}
+
+.primeiro{
+    background-color: #006491;
+}
+
+.navlist{
+    display: flex;
+    align-items: center;
+    background-color: #006491;
+    padding: 10px;
+    
+    gap: 6rem;
+    
+}
+
+
+.navlist li{
+    font-size: 20px;
+   
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    align-items: center ;
+}
+
+
+.carousel{
+    margin: auto;  
+    cursor: pointer; 
+    margin-top: 70px;
+
+}
+
+
+
+
+
+
+
+
+nav {
+	background: #006491;
+	height: 80px;
+	width: 100%;
+}
+label.logo {
+	color: white;
+	font-size: 35px;
+	line-height: 80px;
+	padding: 0 100px;
+	font-weight: bold;
+}
+nav ul {
+	float: right;
+	margin-right: 20px;
+}
+nav ul li {
+	display: inline-block;
+	line-height: 80px;
+	margin: 0 5px;
+    text-decoration: none;
+    list-style: none;
+}
+nav ul li a {
+	color: white;
+	font-size: 17px;
+	padding: 7px 13px;
+    text-decoration: none;
+    list-style: none;
+	border-radius: 3px;
+	text-transform: uppercase;
+}
+a.active {
+	background:#022a3d;
+	transition: .5s;
+
+}
+
+ul a{
+    color: white;
+}
+
+ul a:hover{
+    color: red;
+}
+.checkbtn {
+	font-size: 30px;
+	color: white;
+	float: right;
+	line-height: 80px;
+	margin-right: 40px;
+	cursor: pointer;
+	display: none;
+}
+#check {
+	display: none;
+}
+
+.p nav{
+    background-color: #006491;
+}

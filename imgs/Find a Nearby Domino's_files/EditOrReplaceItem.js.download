@@ -1,0 +1,179 @@
+define("markettemplates/EditOrReplaceItem", [
+    "marketconfig/dpz.lang.builders",
+    "marketconfig/dpz.lang.entrees",
+    "handlebars.runtime"
+], function(buildersStrings, entreesStrings, Handlebars) {
+      return { name: "EditOrReplaceItem", template: Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable;
+
+  return " <p>"
+    + ((stack1 = helpers.unencode.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.groupDescription : depth0),{"name":"unencode","hash":{},"data":data})) != null ? stack1 : "")
+    + "</p> ";
+},"3":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable;
+
+  return " "
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.isCotipCoupon : depth0),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.program(6, data, 0),"data":data})) != null ? stack1 : "")
+    + " ";
+},"4":function(container,depth0,helpers,partials,data) {
+    return " <p class=\"informationText\"> "
+    + container.escapeExpression(helpers.t.call(
+        depth0 != null ? depth0 : (container.nullContext || {}),
+        "builders.your_cotip_coupon_has_been_applied",
+        {"name":"t","hash":{},"data":data},
+        buildersStrings
+    ))
+    + " </p> ";
+},"6":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable;
+
+  return " <p class=\"informationText\"> "
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.showMinimumOrderMessage : depth0),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.program(10, data, 0),"data":data})) != null ? stack1 : "")
+    + " </p> ";
+},"7":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable;
+
+  return " "
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.minimumCustomerAmount : depth0),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.program(10, data, 0),"data":data})) != null ? stack1 : "")
+    + " ";
+},"8":function(container,depth0,helpers,partials,data) {
+    return " "
+    + container.escapeExpression(helpers.t.call(
+        depth0 != null ? depth0 : (container.nullContext || {}),
+        "builders.coupon_has_minimum_amount",
+        {"name":"t","hash":{},"data":data},
+        buildersStrings
+    ))
+    + " ";
+},"10":function(container,depth0,helpers,partials,data) {
+    return " "
+    + container.escapeExpression(helpers.t.call(
+        depth0 != null ? depth0 : (container.nullContext || {}),
+        "builders.your_coupon_is_fulfilled",
+        {"name":"t","hash":{},"data":data},
+        buildersStrings
+    ))
+    + " ";
+},"12":function(container,depth0,helpers,partials,data,blockParams,depths) {
+    var stack1, alias1=container.propertyIsEnumerable, alias2=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return " "
+    + ((stack1 = helpers.unless.call(alias2,(depth0 != null ? depth0.lastStep : depth0),{"name":"unless","hash":{},"fn":container.program(13, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " <ul class=\"message-block__cart-info\"> "
+    + ((stack1 = helpers.each.call(alias2,(depth0 != null ? depth0.itemsInCart : depth0),{"name":"each","hash":{},"fn":container.program(15, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " </ul> ";
+},"13":function(container,depth0,helpers,partials,data) {
+    return " <h2 class=\"edit-or-replace__items-title\">"
+    + container.escapeExpression(helpers.t.call(
+        depth0 != null ? depth0 : (container.nullContext || {}),
+        "builders.items_added_to_this_coupon",
+        {"name":"t","hash":{},"data":data},
+        buildersStrings
+    ))
+    + "</h2> ";
+},"15":function(container,depth0,helpers,partials,data,blockParams,depths) {
+    var stack1, alias1=container.propertyIsEnumerable, alias2=container.lambda, alias3=container.escapeExpression, alias4=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return " <li> <span data-quid=\"item-"
+    + alias3(alias2((depth0 != null ? depth0.code : depth0), depth0))
+    + "\"><span id=\"item-label-"
+    + alias3(alias2((data && data.index), depth0))
+    + "\">("
+    + alias3(alias2((depth0 != null ? depth0.qty : depth0), depth0))
+    + ") "
+    + ((stack1 = alias2((depth0 != null ? depth0.name : depth0), depth0)) != null ? stack1 : "")
+    + "</span> ( <a href=\"#!/order/variant/"
+    + alias3(alias2((depth0 != null ? depth0.id : depth0), depth0))
+    + "/?couponCode="
+    + ((stack1 = alias2((depths[1] != null ? depths[1].groupID : depths[1]), depth0)) != null ? stack1 : "")
+    + "&code="
+    + alias3(alias2((depth0 != null ? depth0.code : depth0), depth0))
+    + "\" aria-describedby=\"item-label-"
+    + alias3(alias2((data && data.index), depth0))
+    + " item-toppings-"
+    + alias3(alias2((data && data.index), depth0))
+    + "\" class=\"js-edit edit-or-replace__edit\" data-name=\""
+    + alias3(helpers.unencode.call(alias4,(depth0 != null ? depth0.name : depth0),{"name":"unencode","hash":{},"data":data}))
+    + "\" data-quid=\"edit-"
+    + alias3(alias2((depth0 != null ? depth0.code : depth0), depth0))
+    + "\" data-dpz-no-track>"
+    + alias3(helpers.t.call(
+      alias4,
+      "builders.edit",
+      {"name":"t","hash":{},"data":data},
+      buildersStrings
+  ))
+    + "</a> | <a href=\"#!/order/variant/"
+    + alias3(alias2((depth0 != null ? depth0.id : depth0), depth0))
+    + "/delete\" class=\"js-replace edit-or-replace__replace\" aria-describedby=\"item-label-"
+    + alias3(alias2((data && data.index), depth0))
+    + " item-toppings-"
+    + alias3(alias2((data && data.index), depth0))
+    + "\" data-name=\""
+    + alias3(alias2((depth0 != null ? depth0.name : depth0), depth0))
+    + "\" data-quid=\"replace-"
+    + alias3(alias2((depth0 != null ? depth0.code : depth0), depth0))
+    + "\" data-dpz-no-track>"
+    + alias3(helpers.t.call(
+      alias4,
+      "builders.replace",
+      {"name":"t","hash":{},"data":data},
+      buildersStrings
+  ))
+    + "</a> )</span> <ul id=\"item-toppings-"
+    + alias3(alias2((data && data.index), depth0))
+    + "\" class=\"message-block__toppings\"> "
+    + ((stack1 = alias2((depth0 != null ? depth0.toppings : depth0), depth0)) != null ? stack1 : "")
+    + " "
+    + ((stack1 = alias2((depth0 != null ? depth0.cookingInstructions : depth0), depth0)) != null ? stack1 : "")
+    + " </ul> </li> ";
+},"17":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable;
+
+  return " "
+    + ((stack1 = helpers.unless.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.isCotipCoupon : depth0),{"name":"unless","hash":{},"fn":container.program(18, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " ";
+},"18":function(container,depth0,helpers,partials,data) {
+    return " <div class=\"informationText\"> <p>"
+    + container.escapeExpression(helpers.t.call(
+        depth0 != null ? depth0 : (container.nullContext || {}),
+        "entrees.select_your_options_in_this",
+        {"name":"t","hash":{},"data":data},
+        entreesStrings
+    ))
+    + "</p> </div> ";
+},"20":function(container,depth0,helpers,partials,data) {
+    var alias1=container.propertyIsEnumerable;
+
+  return " "
+    + container.escapeExpression(helpers.tt.call(
+      depth0 != null ? depth0 : (container.nullContext || {}),
+      "entrees",
+      depth0 != null ? depth0.removeCouponText : depth0,
+      {"name":"tt","hash":{},"data":data},
+      entreesStrings
+  ))
+    + " ";
+},"22":function(container,depth0,helpers,partials,data) {
+    return " "
+    + container.escapeExpression(helpers.t.call(
+        depth0 != null ? depth0 : (container.nullContext || {}),
+        "entrees.loyalty_cancel_redemption",
+        {"name":"t","hash":{},"data":data},
+        entreesStrings
+    ))
+    + " ";
+},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
+    var stack1, alias1=container.propertyIsEnumerable, alias2=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return " "
+    + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.couponDescription : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.program(3, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
+    + " "
+    + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.itemsInCart : depth0),{"name":"if","hash":{},"fn":container.program(12, data, 0, blockParams, depths),"inverse":container.program(17, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
+    + " <a class=\"btn--secondary js-removeCoupon fr btn--remove-coupon is-hidden@desktop edit-or-replace__remove-btn\" data-dpz-segment-track-event-name=\"Remove Coupon\" data-dpz-track-evt-name=\"Coupon Removed\" href=\"#!/order/coupons/"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.orderID : depth0), depth0))
+    + "/delete\" > "
+    + ((stack1 = helpers.unless.call(alias2,(depth0 != null ? depth0.isLoyaltyCoupon : depth0),{"name":"unless","hash":{},"fn":container.program(20, data, 0, blockParams, depths),"inverse":container.program(22, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
+    + " </a>";
+},"useData":true,"useDepths":true}) };
+    });

@@ -1,0 +1,94 @@
+define([], function anonymous(
+) {
+var pluralFuncs = {
+  pt: function(n, ord) {
+    var s = String(n).split('.'), t0 = Number(s[0]) == n;
+    if (ord) return 'other';
+    return ((t0 && n >= 0 && n <= 2) && n != 2) ? 'one' : 'other';
+  }
+};
+var fmt = {};
+var number = function(value, offset) {
+  if (isNaN(value)) throw new Error("'" + value + "' isn't a number.");
+  return value - (offset || 0);
+};
+var plural = function(value, offset, lcfunc, data, isOrdinal) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  if (offset) value -= offset;
+  var key = lcfunc(value, isOrdinal);
+  if (key in data) return data[key]();
+  return data.other();
+};
+var select = function(value, data) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  return data.other()
+};
+
+return {
+  "fulfillerWizard.another_item": function(d) { return "Outro produto"; },
+  "fulfillerWizard.artisan_extra_text": function(d) { return ""; },
+  "fulfillerWizard.artisan_friendly_name": function(d) { return "Artisan"; },
+  "fulfillerWizard.bread_dip_combos_extra_text": function(d) { return ""; },
+  "fulfillerWizard.bread_dip_combos_friendly_name": function(d) { return ""; },
+  "fulfillerWizard.bread_extra_text": function(d) { return ""; },
+  "fulfillerWizard.bread_friendly_name": function(d) { return "Acompanhamentos"; },
+  "fulfillerWizard.calzon_extra_text": function(d) { return ""; },
+  "fulfillerWizard.calzon_friendly_name": function(d) { return "Calzones"; },
+  "fulfillerWizard.category_header_surcharge": function(d) { return ""; },
+  "fulfillerWizard.chbread_extra_text": function(d) { return ""; },
+  "fulfillerWizard.chbread_friendly_name": function(d) { return ""; },
+  "fulfillerWizard.chips_extra_text": function(d) { return ""; },
+  "fulfillerWizard.chips_friendly_name": function(d) { return "Chips"; },
+  "fulfillerWizard.combo_friendly_name": function(d) { return "Combo"; },
+  "fulfillerWizard.dessert_extra_text": function(d) { return ""; },
+  "fulfillerWizard.dessert_friendly_name": function(d) { return "Sobremesas"; },
+  "fulfillerWizard.dip_friendly_name": function(d) { return ""; },
+  "fulfillerWizard.dips_extra_text": function(d) { return ""; },
+  "fulfillerWizard.dips_friendly_name": function(d) { return ""; },
+  "fulfillerWizard.doble_seis_extra_text": function(d) { return ""; },
+  "fulfillerWizard.doble_seis_friendly_name": function(d) { return ""; },
+  "fulfillerWizard.drinks_extra_text": function(d) { return ""; },
+  "fulfillerWizard.drinks_friendly_name": function(d) { return "Bebidas"; },
+  "fulfillerWizard.ecom71451_previous_items_friendly_name": function(d) { return ""; },
+  "fulfillerWizard.finished": function(d) { return "Pronto!"; },
+  "fulfillerWizard.finished_alt_text": function(d) { return ""; },
+  "fulfillerWizard.gifts_friendly_name": function(d) { return "Gifts"; },
+  "fulfillerWizard.gsalad_extra_text": function(d) { return ""; },
+  "fulfillerWizard.gsalad_friendly_name": function(d) { return "Salads"; },
+  "fulfillerWizard.hoagies_extra_text": function(d) { return ""; },
+  "fulfillerWizard.hoagies_friendly_name": function(d) { return "Hoagies"; },
+  "fulfillerWizard.item_added": function(d) { return ""; },
+  "fulfillerWizard.papotas_extra_text": function(d) { return ""; },
+  "fulfillerWizard.papotas_friendly_name": function(d) { return "Papotas"; },
+  "fulfillerWizard.pasta_extra_text": function(d) { return ""; },
+  "fulfillerWizard.pasta_friendly_name": function(d) { return "Pasta"; },
+  "fulfillerWizard.pizza_extra_text": function(d) { return "Alguns tipos de massa e ingredientes poderão fazer alterar o preço da promoção"; },
+  "fulfillerWizard.pizza_friendly_name": function(d) { return "Pizzas"; },
+  "fulfillerWizard.product_surcharge": function(d) { return "+" + d.productSurcharge; },
+  "fulfillerWizard.rice_friendly_name": function(d) { return "Rice"; },
+  "fulfillerWizard.sandwich_extra_text": function(d) { return ""; },
+  "fulfillerWizard.sandwich_friendly_name": function(d) { return "Sanduíches"; },
+  "fulfillerWizard.selfie_extra_text": function(d) { return ""; },
+  "fulfillerWizard.selfie_friendly_name": function(d) { return "Value Range"; },
+  "fulfillerWizard.sides_extra_text": function(d) { return ""; },
+  "fulfillerWizard.sides_friendly_name": function(d) { return "Molhos"; },
+  "fulfillerWizard.smallie_extra_text": function(d) { return ""; },
+  "fulfillerWizard.smallie_friendly_name": function(d) { return "Value Range"; },
+  "fulfillerWizard.step_1": function(d) { return "Primeiro produto"; },
+  "fulfillerWizard.step_10": function(d) { return "Decimo produto"; },
+  "fulfillerWizard.step_2": function(d) { return "Segundo produto"; },
+  "fulfillerWizard.step_3": function(d) { return "Terceiro produto"; },
+  "fulfillerWizard.step_4": function(d) { return "Quarto produto"; },
+  "fulfillerWizard.step_5": function(d) { return "Quinto produto"; },
+  "fulfillerWizard.step_6": function(d) { return "Sexto produto"; },
+  "fulfillerWizard.step_7": function(d) { return "Sétimo produto"; },
+  "fulfillerWizard.step_8": function(d) { return "Oitavo produto"; },
+  "fulfillerWizard.step_9": function(d) { return "Nono produto"; },
+  "fulfillerWizard.surcharge_price": function(d) { return ""; },
+  "fulfillerWizard.tots_extra_text": function(d) { return ""; },
+  "fulfillerWizard.tots_friendly_name": function(d) { return ""; },
+  "fulfillerWizard.wings_extra_text": function(d) { return ""; },
+  "fulfillerWizard.wings_friendly_name": function(d) { return "Frango"; }
+}
+}
+);

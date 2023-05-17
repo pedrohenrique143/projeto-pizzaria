@@ -1,0 +1,49 @@
+define([], function anonymous(
+) {
+var pluralFuncs = {
+  pt: function(n, ord) {
+    var s = String(n).split('.'), t0 = Number(s[0]) == n;
+    if (ord) return 'other';
+    return ((t0 && n >= 0 && n <= 2) && n != 2) ? 'one' : 'other';
+  }
+};
+var fmt = {};
+var number = function(value, offset) {
+  if (isNaN(value)) throw new Error("'" + value + "' isn't a number.");
+  return value - (offset || 0);
+};
+var plural = function(value, offset, lcfunc, data, isOrdinal) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  if (offset) value -= offset;
+  var key = lcfunc(value, isOrdinal);
+  if (key in data) return data[key]();
+  return data.other();
+};
+var select = function(value, data) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  return data.other()
+};
+
+return {
+  "autoCoupon.build_your_order": function(d) { return "Build your order and we'll find you coupons that fit your products."; },
+  "autoCoupon.checking": function(d) { return "Checking"; },
+  "autoCoupon.coupon": function(d) { return "Coupon"; },
+  "autoCoupon.coupon_finder": function(d) { return "Coupon Finder"; },
+  "autoCoupon.coupon_savings_applied": function(d) { return "Cha-Ching! Coupon savings applied."; },
+  "autoCoupon.coupons": function(d) { return "Coupons"; },
+  "autoCoupon.coupons_found": function(d) { return "Coupons Found!"; },
+  "autoCoupon.dont_want_to_search_through_the_list": function(d) { return "Don't want to search through the list?"; },
+  "autoCoupon.eligible": function(d) { return ""; },
+  "autoCoupon.for": function(d) { return "for"; },
+  "autoCoupon.for_your_products": function(d) { return "for your products."; },
+  "autoCoupon.found": function(d) { return "Found!"; },
+  "autoCoupon.ineligible": function(d) { return ""; },
+  "autoCoupon.show_eligible_coupon_list": function(d) { return "Show eligible coupon list"; },
+  "autoCoupon.show_full_coupon_list": function(d) { return "Show Full Coupon List"; },
+  "autoCoupon.sorry_none_of_our_coupons_quite_fit_your_order": function(d) { return "Sorry, none of our coupons quite fit your order."; },
+  "autoCoupon.these_are_the_eligible_coupons": function(d) { return "These are the eligible coupons"; },
+  "autoCoupon.this_is_the_eligible_coupon": function(d) { return "This is the eligible coupon"; },
+  "autoCoupon.you_are_viewing_the_entire_coupon_list": function(d) { return "You are viewing the entire coupon list."; }
+}
+}
+);

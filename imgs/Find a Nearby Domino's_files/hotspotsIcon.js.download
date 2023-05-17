@@ -1,0 +1,23 @@
+define("markettemplates/hotspotsIcon", ["marketconfig/dpz.lang.locations", "handlebars.runtime"], function(locationsStrings, Handlebars) {
+      return { name: "hotspotsIcon", template: Handlebars.template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable, alias2=depth0 != null ? depth0 : (container.nullContext || {}), alias3=container.escapeExpression;
+
+  return "<span class=\"circ-icons__or\" aria-hidden=\"true\">"
+    + alias3(helpers.t.call(
+    alias2,
+    "locations.or",
+    {"name":"t","hash":{},"data":data},
+    locationsStrings
+  ))
+    + "</span> <input id=\"Service_Type_Hotspots\" type=\"radio\" name=\"Service_Type\" value=\"Hotspots\" /> <label for=\"Service_Type_Hotspots\" class=\"js-hotspots c-locationsearch-hotspots\" data-dpz-track-evt data-dpz-track-evt-category=\"form-control\"> <span aria-hidden=\"true\" data-quid=\"easy-order-locator-hotspots\" class=\"Hotspots c-hotspots circ-icons__icon circ-icons__icon--hotspots\"> <img alt=\"\" src=\""
+    + alias3(container.lambda((depth0 != null ? depth0.assets_ctx : depth0), depth0))
+    + "/images/bkg/icons/icon-hotspots-white.svg\" /> </span> <span class=\"circ-icons__txt circ-icons__txt--hotspots\"> "
+    + ((stack1 = helpers.t.call(
+    alias2,
+    "locations.hotspots",
+    {"name":"t","hash":{},"data":data},
+    locationsStrings
+  )) != null ? stack1 : "")
+    + " </span> </label>";
+},"useData":true}) };
+    });

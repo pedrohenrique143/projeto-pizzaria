@@ -1,0 +1,30 @@
+define("markettemplates/deliverToMeButton", ["marketconfig/dpz.lang.deliverToMe", "handlebars.runtime"], function(deliverToMeStrings, Handlebars) {
+      return { name: "deliverToMeButton", template: Handlebars.template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var alias1=container.propertyIsEnumerable, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return "<button type=\"button\" class=\"js-deliver-to-me-cta c-locationsearch-deliver-to-me-cta locator-deliver-to-me__cta\" > <img src=\""
+    + alias2(container.lambda((depth0 != null ? depth0.market_assets_ctx : depth0), depth0))
+    + "/images/hotspots/dtm-hotspots-example.png\" alt=\""
+    + alias2(helpers.t.call(
+    alias3,
+    "deliverToMe.map_example",
+    {"name":"t","hash":{},"data":data},
+    deliverToMeStrings
+  ))
+    + "\" /> <div class=\"btn locator-deliver-to-me__cta--button\"> "
+    + alias2(helpers.t.call(
+    alias3,
+    "deliverToMe.select_deliver_to_me",
+    {"name":"t","hash":{},"data":data},
+    deliverToMeStrings
+  ))
+    + " </div> </button> "
+    + alias2(helpers.t.call(
+    alias3,
+    "deliverToMe.map_for_illustration",
+    {"name":"t","hash":{},"data":data},
+    deliverToMeStrings
+  ))
+    + " ";
+},"useData":true}) };
+    });

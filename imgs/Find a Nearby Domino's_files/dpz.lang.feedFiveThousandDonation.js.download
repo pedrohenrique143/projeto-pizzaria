@@ -1,0 +1,38 @@
+define([], function anonymous(
+) {
+var pluralFuncs = {
+  pt: function(n, ord) {
+    var s = String(n).split('.'), t0 = Number(s[0]) == n;
+    if (ord) return 'other';
+    return ((t0 && n >= 0 && n <= 2) && n != 2) ? 'one' : 'other';
+  }
+};
+var fmt = {};
+var number = function(value, offset) {
+  if (isNaN(value)) throw new Error("'" + value + "' isn't a number.");
+  return value - (offset || 0);
+};
+var plural = function(value, offset, lcfunc, data, isOrdinal) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  if (offset) value -= offset;
+  var key = lcfunc(value, isOrdinal);
+  if (key in data) return data[key]();
+  return data.other();
+};
+var select = function(value, data) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  return data.other()
+};
+
+return {
+  "feedFiveThousandDonation.choose_donation_amount": function(d) { return "Choose a donation amount"; },
+  "feedFiveThousandDonation.donate_now": function(d) { return "Donate Now"; },
+  "feedFiveThousandDonation.every_dollar_donated_will_help": function(d) { return "Every Dollar donated will help to purchase a holiday meal for a family in need."; },
+  "feedFiveThousandDonation.go_to_checkout": function(d) { return "No, go to checkout"; },
+  "feedFiveThousandDonation.no_dollar_breakdown": function(d) { return "(We will not do a dollar value breakdown)"; },
+  "feedFiveThousandDonation.no_one_should_go_hungry": function(d) { return "No one should go hungry!"; },
+  "feedFiveThousandDonation.overlay_title": function(d) { return "Donate today fight hunger with us"; },
+  "feedFiveThousandDonation.product_description": function(d) { return "Each meal package contains a whole chicken, picnic ham, stuffing, five pounds of rice, two cans of peas, and two canned vegetables."; }
+}
+}
+);

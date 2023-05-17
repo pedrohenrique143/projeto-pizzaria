@@ -1,0 +1,44 @@
+define([], function anonymous(
+) {
+var pluralFuncs = {
+  pt: function(n, ord) {
+    var s = String(n).split('.'), t0 = Number(s[0]) == n;
+    if (ord) return 'other';
+    return ((t0 && n >= 0 && n <= 2) && n != 2) ? 'one' : 'other';
+  }
+};
+var fmt = {};
+var number = function(value, offset) {
+  if (isNaN(value)) throw new Error("'" + value + "' isn't a number.");
+  return value - (offset || 0);
+};
+var plural = function(value, offset, lcfunc, data, isOrdinal) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  if (offset) value -= offset;
+  var key = lcfunc(value, isOrdinal);
+  if (key in data) return data[key]();
+  return data.other();
+};
+var select = function(value, data) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  return data.other()
+};
+
+return {
+  "meta.are_you_constantly_thinking": function(d) { return ""; },
+  "meta.are_you_looking_for_coupons": function(d) { return ""; },
+  "meta.are_you_looking_for_dominos": function(d) { return ""; },
+  "meta.browse_coupons_order_dominos_online": function(d) { return "Ver promoções e encomendar online para entrega e levantamento.  Menu apresenta pizza, massa, asas de frango, pão de queijo, sandwiches, sobremesas, batatas & bebidas"; },
+  "meta.did_you_know": function(d) { return ""; },
+  "meta.dominos_pizza_lets_you_browse": function(d) { return "Domino's Pizza permite escolher descontos e encomendar online - Experimente as novas bases, e molhos e tipos de queijo."; },
+  "meta.dominos_pizza_profile_dominos_dominos": function(d) { return "Perfil de pizza dominos , dominos, domino's pizza, dominos pizza, domino, dominoes, domin, domi, dominoes pizza,Encomenda de pizza online, Entrega ao domicilio de Pizza, localizar a entrega da pizza,Entrega de Pizza Online, Dominos tracker, Pizza tracker, Entrega de Pizza Tracker, Entrega Dominos tracker"; },
+  "meta.have_you_ever_checked_out": function(d) { return ""; },
+  "meta.in_less_than_30_seconds": function(d) { return "Em menos de  30 segundos, encomenda a tua Domino's Pizza online para entrega na loja e na morada que referir. Com o Perfil de Pizza é mais rapido efetuar a sua encomenda ."; },
+  "meta.over_5_000_dominos_locations": function(d) { return "Mais de  5,000 Domino's localizações. Procura automaticamente para entrega ou levantamento na loja."; },
+  "meta.pizza_dominos_pizza_delivery_pizza": function(d) { return "pizza, domino's, entrega pizza, pizza online, pedido de pizza online, encomendar pizza"; },
+  "meta.pizza_pizzas_a_pizza_new": function(d) { return "pizza, pizzas, a pizza, Nova pizza, Nova base, Entrega de Pizza, Menu de Pizza, Coupoes de Pizza, Pedido de pizza online, dominos, Domino's Pizza, Dominos Pizza, domino, dominoes, domin, domi, dominoes pizza, Dominos Pizza Menu, Coupoes Dominos, B.B.Q, bbq, bar b que, bar que, barbecue, barbque, sweet mango habenero, Frango Inspirado, Novo Frango, Frango desossado, Asas de Frango"; },
+  "meta.pizza_places_pizza_places_near": function(d) { return "Lugar pizza, Sitios de pizza perto de si,encomendar comida online, entrega de dominos pizza."; },
+  "meta.track_every_step_of_your": function(d) { return "Siga todos os passos da sua Pizza até ser entregue."; }
+}
+}
+);

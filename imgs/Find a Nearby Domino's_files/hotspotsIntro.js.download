@@ -1,0 +1,187 @@
+define("markettemplates/hotspotsIntro", [
+  "marketconfig/dpz.lang.deliverToMe",
+  "marketconfig/dpz.lang.hotspots",
+  "handlebars.runtime",
+  "dpz.template",
+  "dpz.layout",
+  "markettemplates/deliverToMeButton"
+], function(deliverToMeStrings, hotspotsStrings, Handlebars, dpzTemplate, dpzLayout) {
+  for (var _len = arguments.length, partials = new Array(_len > 5 ? _len - 5 : 0), _key = 5; _key < _len; _key++) {
+    partials[_key - 5] = arguments[_key];
+  }
+  dpzTemplate.set(partials.map(function (partial) {
+    var name = partial.name;
+    var template = partial.template;
+    return {
+      name: name,
+      template: dpzLayout.create(template)
+    };
+  }));
+  return { name: "hotspotsIntro", template: Handlebars.template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+var alias1=container.propertyIsEnumerable, alias2=depth0 != null ? depth0 : (container.nullContext || {}), alias3=container.escapeExpression, alias4=container.lambda;
+
+return " <div class=\"js-deliver-to-meInstructions is-hidden grid\"> <div class=\"grid__cell--1@desktop grid__cell--1/2@desktop locator-deliver-to-me__left\" > <h3 class=\"locator-deliver-to-me__header\"> "
++ alias3(helpers.t.call(
+alias2,
+"deliverToMe.introducing",
+{"name":"t","hash":{},"data":data},
+deliverToMeStrings
+))
++ " </h3> <span class=\"locator-deliver-to-me__intro\"> "
++ alias3(helpers.t.call(
+alias2,
+"deliverToMe.intro",
+{"name":"t","hash":{},"data":data},
+deliverToMeStrings
+))
++ " </span> <h3 class=\"locator-deliver-to-me__header\"> "
++ alias3(helpers.t.call(
+alias2,
+"deliverToMe.how_it_works",
+{"name":"t","hash":{},"data":data},
+deliverToMeStrings
+))
++ " </h3> <ol class=\"locator-deliver-to-me__list\"> <li> "
++ alias3(helpers.t.call(
+alias2,
+"deliverToMe.step_one",
+{"name":"t","hash":{},"data":data},
+deliverToMeStrings
+))
++ " <i> "
++ alias3(helpers.t.call(
+alias2,
+"deliverToMe.share_location",
+{"name":"t","hash":{},"data":data},
+deliverToMeStrings
+))
++ " </i> </li> <li> "
++ alias3(helpers.t.call(
+alias2,
+"deliverToMe.step_two",
+{"name":"t","hash":{},"data":data},
+deliverToMeStrings
+))
++ " </li> <li> "
++ alias3(helpers.t.call(
+alias2,
+"deliverToMe.step_three",
+{"name":"t","hash":{},"data":data},
+deliverToMeStrings
+))
++ " </li> </ol> <span class=\"locator-deliver-to-me__footnote\"> "
++ alias3(helpers.t.call(
+alias2,
+"deliverToMe.footnote",
+{"name":"t","hash":{},"data":data},
+deliverToMeStrings
+))
++ " </span> <div class=\"is-hidden@desktop\"> "
++ alias3(helpers.prt.call(alias2,"deliverToMeButton",{"name":"prt","hash":{},"data":data}))
++ " </div> </div> <div class=\"is-hidden@handheld grid__cell--1/2@desktop\"> "
++ alias3(helpers.prt.call(alias2,"deliverToMeButton",{"name":"prt","hash":{},"data":data}))
++ " </div> </div>   <div class=\"js-hotspotsInstructions is-hidden grid\"> <div class=\"grid__cell--1@desktop grid__cell--1/2@desktop locator-hotspots__left\" > <h3 class=\"locator-hotspots__header\"> "
++ alias3(helpers.t.call(
+alias2,
+"hotspots.introducing",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ " </h3> <span class=\"locator-hotspots__intro\"> "
++ alias3(helpers.t.call(
+alias2,
+"hotspots.intro",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ " </span> <h3 class=\"locator-hotspots__header\"> "
++ alias3(helpers.t.call(
+alias2,
+"hotspots.how_it_works",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ " </h3> <ol class=\"locator-hotspots__list\"> <li> "
++ alias3(helpers.t.call(
+alias2,
+"hotspots.step_one",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ " <i> "
++ alias3(helpers.t.call(
+alias2,
+"hotspots.share_location",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ " </i> </li> <li> "
++ alias3(helpers.t.call(
+alias2,
+"hotspots.step_two",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ " </li> <li> "
++ alias3(helpers.t.call(
+alias2,
+"hotspots.step_three",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ " </li> </ol> <span class=\"locator-hotspots__footnote\"> "
++ alias3(helpers.t.call(
+alias2,
+"hotspots.footnote",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ " </span> <div class=\"is-hidden@desktop\"> <button type=\"button\" class=\"js-hotspots-cta c-locationsearch-hotspots-cta locator-hotspots__cta\" > <img src=\""
++ alias3(alias4((depth0 != null ? depth0.market_assets_ctx : depth0), depth0))
++ "/images/hotspots/hotspots-example.png\" alt=\""
++ alias3(helpers.t.call(
+alias2,
+"hotspots.dominos_hotspot_map_example",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ "\" /> <div class=\"btn locator-hotspots__cta--button\"> "
++ alias3(helpers.t.call(
+alias2,
+"hotspots.find_nearby_dominos_hotspots",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ " </div> </button> "
++ alias3(helpers.t.call(
+alias2,
+"hotspots.map_for_illustration",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ " </div> </div> <div class=\"is-hidden@handheld grid__cell--1/2@desktop\"> <button type=\"button\" class=\"js-hotspots-cta c-locationsearch-hotspots-cta locator-hotspots__cta\" > <img src=\""
++ alias3(alias4((depth0 != null ? depth0.market_assets_ctx : depth0), depth0))
++ "/images/hotspots/hotspots-example.png\" alt=\""
++ alias3(helpers.t.call(
+alias2,
+"hotspots.dominos_hotspot_map_example",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ "\" /> <div class=\"btn locator-hotspots__cta--button\"> "
++ alias3(helpers.t.call(
+alias2,
+"hotspots.find_nearby_dominos_hotspots",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ " </div> </button> "
++ alias3(helpers.t.call(
+alias2,
+"hotspots.map_for_illustration",
+{"name":"t","hash":{},"data":data},
+hotspotsStrings
+))
++ " </div> </div>  ";
+},"useData":true}) };
+});

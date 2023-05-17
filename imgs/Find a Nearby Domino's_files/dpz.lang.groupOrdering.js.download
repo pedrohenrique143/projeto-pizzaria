@@ -1,0 +1,78 @@
+define([], function anonymous(
+) {
+var pluralFuncs = {
+  pt: function(n, ord) {
+    var s = String(n).split('.'), t0 = Number(s[0]) == n;
+    if (ord) return 'other';
+    return ((t0 && n >= 0 && n <= 2) && n != 2) ? 'one' : 'other';
+  }
+};
+var fmt = {};
+var number = function(value, offset) {
+  if (isNaN(value)) throw new Error("'" + value + "' isn't a number.");
+  return value - (offset || 0);
+};
+var plural = function(value, offset, lcfunc, data, isOrdinal) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  if (offset) value -= offset;
+  var key = lcfunc(value, isOrdinal);
+  if (key in data) return data[key]();
+  return data.other();
+};
+var select = function(value, data) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  return data.other()
+};
+
+return {
+  "groupOrdering.0_large_pizzas": function(d) { return "= </p><div class=\"fl\"><span class=\"js-numberOfPizzas numberOfPizzas\">0</span></div><p class=\"fl\"> Maior <span class=\"pizzaCalcIcon\">Pizzas</span>"; },
+  "groupOrdering.and_see_your_discount_grow": function(d) { return "e veja o disconto no nosso dashboard abaixo."; },
+  "groupOrdering.back": function(d) { return ""; },
+  "groupOrdering.build_your_own_pizza": function(d) { return "Faz a tua Pizza"; },
+  "groupOrdering.calculate": function(d) { return "Calcular"; },
+  "groupOrdering.current_discount_level_0_pizzas_0_percent_off_each": function(d) { return ""; },
+  "groupOrdering.custom_coupon_info": function(d) { return ""; },
+  "groupOrdering.dominos_group_ordering": function(d) { return "Encomendar na Domino's Pizza"; },
+  "groupOrdering.dont_see_what_youre_looking": function(d) { return "Não verifica o que procura? Pode costumizar qualquer  pizza e mesmo assim adicionar ao seu grupo de encomendas para desconto."; },
+  "groupOrdering.for_0_people_at_0": function(d) { return "Para <span class=\"js-numberOfPeople\">0</span> pessoas em <span class=\"js-slicesPerPerson\">0</span> fatias por pessoa"; },
+  "groupOrdering.formula_is_of_people_multiplied": function(d) { return "Formula é: " + "#" + " de Pessoas multiplicado por " + "#" + " de Fatias Por Pessoa,  e dividida por 8 Fatias de Pizza Grande."; },
+  "groupOrdering.get_started": function(d) { return "Vamos começar"; },
+  "groupOrdering.if_equation_doesnt_come_out": function(d) { return "Se a equação não sai para exigir , Pizza total é arredondado para a próxima pizza integral."; },
+  "groupOrdering.if_the_item_you_love": function(d) { return "Se o item que adora não está no menu, <a href=\"" + "#" + "\">Todo o Menu</a> e adiciona o item que preferir."; },
+  "groupOrdering.if_you_dont_see_the": function(d) { return "Se não verifica a pizza que gosta, selecionar Faça a sua pizza ou explore o resto do site. Não se preocupe, o desconto vai aparecer em todas as pizzas que adicionar ao carrinho."; },
+  "groupOrdering.if_you_wish_to_see": function(d) { return "Se deseja ver todos os descontos disponiveis, selecione <a href=\"" + d.ctx + "/pages/order/" + "#" + "!/section/Coupons/category/All/\">Secçao de Coupoes.</a>"; },
+  "groupOrdering.just_type_in_how_many": function(d) { return "Basta introduzir quantas pessoas estão no seu grupo, e quantas fatias você gostaria que cada pessoa têm , e clique em OK , vamos estimar quantas pizzas grandes que você precisa."; },
+  "groupOrdering.level": function(d) { return "level"; },
+  "groupOrdering.next_discount_level_0_pizzas_0_percent_off_each": function(d) { return ""; },
+  "groupOrdering.next_step": function(d) { return ""; },
+  "groupOrdering.no_coupon_available": function(d) { return ""; },
+  "groupOrdering.no_of_people": function(d) { return "Não. of <span class=\"pizzaCalcIcon\">pessoas</span>"; },
+  "groupOrdering.not_sure_how_many_to": function(d) { return "Não têm a certeza de quantas pizzas encomendar?"; },
+  "groupOrdering.numberofpizzas_pizzas_percentoff_off": function(d) { return d.numberOfPizzas + " Pizzas = " + d.percentOff + "% Off"; },
+  "groupOrdering.ok": function(d) { return "ok"; },
+  "groupOrdering.order": function(d) { return "Encomendar"; },
+  "groupOrdering.order_at_least": function(d) { return "Encomendar pelo menos " + d.pizzaLevel + " Pizzas e comprar por menos  " + d.percentLevel + "% do seu valor!"; },
+  "groupOrdering.percent_level": function(d) { return d.percentLevel + "% menos de todas as pizzas"; },
+  "groupOrdering.pizza_discount": function(d) { return ""; },
+  "groupOrdering.pizza_math_calculator": function(d) { return "Calculador de Pizzas"; },
+  "groupOrdering.recalculate": function(d) { return "Recalcular"; },
+  "groupOrdering.recommendation_is_based_on_large": function(d) { return "fatias"; },
+  "groupOrdering.sides_and_drinks": function(d) { return ""; },
+  "groupOrdering.slices_per_person": function(d) { return "Fatias por <span class=\"pizzaCalcIcon\">pessoa</span>"; },
+  "groupOrdering.start_adding_pizzas_to_your": function(d) { return "Comece a adicionar pizzas ao seu carrinho e o desconto irá aparecer no nosso dashboard."; },
+  "groupOrdering.start_ordering_pizzas": function(d) { return "Começar a encomendar Pizzas"; },
+  "groupOrdering.start_ordering_sides": function(d) { return "Começar a encomendar lados."; },
+  "groupOrdering.starting_a_group_order_will": function(d) { return "A partir de uma encomenda de Grupo irá substituir o cupão, na sua encomenda."; },
+  "groupOrdering.step1coupons": function(d) { return "Quanto mais pizzas encomendar, mais vai economizar"; },
+  "groupOrdering.step1nocoupons": function(d) { return "Nunca foi tão facil encomendar para todos"; },
+  "groupOrdering.step2": function(d) { return "Certifique-se que todas as necessidades estão cobertas"; },
+  "groupOrdering.the_more_pizzas_you_order": function(d) { return "Quanto mais pizzas adicionar, mais poupa!"; },
+  "groupOrdering.this_coupon_will_replace_one": function(d) { return "Essa promoção irá substituir outras que você já adicionou no seu pedido. As nossas promoções não são cumulativas."; },
+  "groupOrdering.total_pizzas": function(d) { return ""; },
+  "groupOrdering.use_our_pizza_math_calculator": function(d) { return "Use o nosso calculador de Pizza."; },
+  "groupOrdering.you_can_edit_items_by": function(d) { return "Pode editar a encomenda por seleccionar Meu pedido na secção á direita."; },
+  "groupOrdering.you_need_0_large_pizzas": function(d) { return "Precisa <span class=\"js-pizzasNeeded\">0</span> Pizzas Grandes"; },
+  "groupOrdering.you_will_need": function(d) { return "Vamos precisar...<a class=\"hint helpIcon helpIconReverse noText js-pizzaCalcHelp fr\" href=\"" + "#" + "\">?</a>"; }
+}
+}
+);

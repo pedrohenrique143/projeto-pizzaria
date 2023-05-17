@@ -1,0 +1,51 @@
+define([], function anonymous(
+) {
+var pluralFuncs = {
+  pt: function(n, ord) {
+    var s = String(n).split('.'), t0 = Number(s[0]) == n;
+    if (ord) return 'other';
+    return ((t0 && n >= 0 && n <= 2) && n != 2) ? 'one' : 'other';
+  }
+};
+var fmt = {};
+var number = function(value, offset) {
+  if (isNaN(value)) throw new Error("'" + value + "' isn't a number.");
+  return value - (offset || 0);
+};
+var plural = function(value, offset, lcfunc, data, isOrdinal) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  if (offset) value -= offset;
+  var key = lcfunc(value, isOrdinal);
+  if (key in data) return data[key]();
+  return data.other();
+};
+var select = function(value, data) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  return data.other()
+};
+
+return {
+  "nutrition.build_a_pizza": function(d) { return ""; },
+  "nutrition.calories": function(d) { return "Calories"; },
+  "nutrition.counting_calories": function(d) { return ""; },
+  "nutrition.crust": function(d) { return ""; },
+  "nutrition.favorites": function(d) { return ""; },
+  "nutrition.got_it_thanks": function(d) { return ""; },
+  "nutrition.load_up_veggies": function(d) { return ""; },
+  "nutrition.no_nutrition_info": function(d) { return "We're sorry. Nutrition information is temporarily unavailable."; },
+  "nutrition.pick_meats": function(d) { return ""; },
+  "nutrition.saturated_fat": function(d) { return "Saturated Fat (g)"; },
+  "nutrition.sauce": function(d) { return "Sauce"; },
+  "nutrition.serving_size": function(d) { return ""; },
+  "nutrition.side_salads": function(d) { return ""; },
+  "nutrition.size": function(d) { return ""; },
+  "nutrition.slice": function(d) { return "1/8 of Pizza"; },
+  "nutrition.sodium": function(d) { return "Sodium (mg)"; },
+  "nutrition.some_options": function(d) { return ""; },
+  "nutrition.speciality_pizzas": function(d) { return ""; },
+  "nutrition.total_sugars": function(d) { return "Total Sugars (g)"; },
+  "nutrition.view_details": function(d) { return ""; },
+  "nutrition.weight": function(d) { return "Weight g (oz)"; }
+}
+}
+);

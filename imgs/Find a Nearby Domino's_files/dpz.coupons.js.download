@@ -1,0 +1,1 @@
+define("dpz.coupons",["dpz.config"],function(n){function o(){return t("coupons")}var t=n.getMarketProperty,u=o().nationalCoupons;return{getCouponConfig:o,getIsNationalCoupon:function(n){return u.includes(n)}}});

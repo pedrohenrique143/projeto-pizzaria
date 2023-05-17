@@ -1,0 +1,138 @@
+define([], function anonymous(
+) {
+var pluralFuncs = {
+  pt: function(n, ord) {
+    var s = String(n).split('.'), t0 = Number(s[0]) == n;
+    if (ord) return 'other';
+    return ((t0 && n >= 0 && n <= 2) && n != 2) ? 'one' : 'other';
+  }
+};
+var fmt = {};
+var number = function(value, offset) {
+  if (isNaN(value)) throw new Error("'" + value + "' isn't a number.");
+  return value - (offset || 0);
+};
+var plural = function(value, offset, lcfunc, data, isOrdinal) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  if (offset) value -= offset;
+  var key = lcfunc(value, isOrdinal);
+  if (key in data) return data[key]();
+  return data.other();
+};
+var select = function(value, data) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  return data.other()
+};
+
+return {
+  "pizzaBuilder.alphabetical": function(d) { return "Alfabético (A-Z)"; },
+  "pizzaBuilder.choose_size_and_crust": function(d) { return "Choose Your Size &amp; Crust"; },
+  "pizzaBuilder.ecom73139_alphabetical": function(d) { return ""; },
+  "pizzaBuilder.ecom73139_aria_label_alphabetical": function(d) { return ""; },
+  "pizzaBuilder.ecom73139_aria_label_extra": function(d) { return ""; },
+  "pizzaBuilder.ecom73139_aria_label_featured": function(d) { return ""; },
+  "pizzaBuilder.ecom73139_aria_label_light": function(d) { return ""; },
+  "pizzaBuilder.ecom73139_aria_label_none": function(d) { return ""; },
+  "pizzaBuilder.ecom73139_aria_label_normal": function(d) { return ""; },
+  "pizzaBuilder.ecom73139_aria_label_popular": function(d) { return ""; },
+  "pizzaBuilder.ecom73139_featured": function(d) { return ""; },
+  "pizzaBuilder.ecom73139_no_sauce": function(d) { return ""; },
+  "pizzaBuilder.ecom73139_popular": function(d) { return ""; },
+  "pizzaBuilder.ecom73139_topping_side_left": function(d) { return ""; },
+  "pizzaBuilder.ecom73139_topping_side_right": function(d) { return ""; },
+  "pizzaBuilder.ecom73139_topping_side_whole": function(d) { return ""; },
+  "pizzaBuilder.featured": function(d) { return "Destaque"; },
+  "pizzaBuilder.from": function(d) { return "From"; },
+  "pizzaBuilder.left": function(d) { return "Esquerda"; },
+  "pizzaBuilder.most_popular": function(d) { return ""; },
+  "pizzaBuilder.note": function(d) { return ""; },
+  "pizzaBuilder.popular": function(d) { return "Mais popular"; },
+  "pizzaBuilder.premium_cheese_price_text": function(d) { return "Personal : RM0.50</br>Regular : RM1.00</br>Large : RM2.00</br>Xtra Large : RM3.00"; },
+  "pizzaBuilder.recent_pizzas_add_pizza_to_order": function(d) { return "Add pizza to order"; },
+  "pizzaBuilder.recent_pizzas_add_recent_pizza": function(d) { return "Add a recently ordered pizza"; },
+  "pizzaBuilder.recent_pizzas_begin_from_scratch": function(d) { return "Begin from scratch with a cheese pizza and build your perfect pizza."; },
+  "pizzaBuilder.recent_pizzas_see_pizzas": function(d) { return "See Recent Pizzas"; },
+  "pizzaBuilder.recent_pizzas_skip_builder": function(d) { return "Skip the pizza builder and add a recently ordered pizza directly to your cart."; },
+  "pizzaBuilder.recent_pizzas_start_from_scratch": function(d) { return "Start from scratch"; },
+  "pizzaBuilder.remove_both_cheese_and_sauce": function(d) { return ""; },
+  "pizzaBuilder.reset_pizza_selection": function(d) { return "Reset selection"; },
+  "pizzaBuilder.right": function(d) { return "Direita"; },
+  "pizzaBuilder.size_10": function(d) { return ""; },
+  "pizzaBuilder.size_11": function(d) { return ""; },
+  "pizzaBuilder.size_115": function(d) { return ""; },
+  "pizzaBuilder.size_12": function(d) { return ""; },
+  "pizzaBuilder.size_13": function(d) { return ""; },
+  "pizzaBuilder.size_14": function(d) { return ""; },
+  "pizzaBuilder.size_16": function(d) { return ""; },
+  "pizzaBuilder.size_18": function(d) { return ""; },
+  "pizzaBuilder.size_30": function(d) { return ""; },
+  "pizzaBuilder.size_35": function(d) { return ""; },
+  "pizzaBuilder.size_40": function(d) { return ""; },
+  "pizzaBuilder.size_6": function(d) { return ""; },
+  "pizzaBuilder.size_8": function(d) { return ""; },
+  "pizzaBuilder.size_BRD": function(d) { return ""; },
+  "pizzaBuilder.size_BROT": function(d) { return "18"; },
+  "pizzaBuilder.size_CL": function(d) { return ""; },
+  "pizzaBuilder.size_GIG": function(d) { return "40"; },
+  "pizzaBuilder.size_GR": function(d) { return ""; },
+  "pizzaBuilder.size_GRD": function(d) { return "35"; },
+  "pizzaBuilder.size_LG": function(d) { return ""; },
+  "pizzaBuilder.size_MD": function(d) { return ""; },
+  "pizzaBuilder.size_MED": function(d) { return "30"; },
+  "pizzaBuilder.size_SM": function(d) { return ""; },
+  "pizzaBuilder.size_XL": function(d) { return ""; },
+  "pizzaBuilder.size__30": function(d) { return ""; },
+  "pizzaBuilder.size_brot": function(d) { return "18"; },
+  "pizzaBuilder.size_cl": function(d) { return ""; },
+  "pizzaBuilder.size_crust_label": function(d) { return ""; },
+  "pizzaBuilder.size_gig": function(d) { return "40"; },
+  "pizzaBuilder.size_gr": function(d) { return ""; },
+  "pizzaBuilder.size_grd": function(d) { return "35"; },
+  "pizzaBuilder.size_label_10": function(d) { return ""; },
+  "pizzaBuilder.size_label_12": function(d) { return ""; },
+  "pizzaBuilder.size_label_14": function(d) { return ""; },
+  "pizzaBuilder.size_label_16": function(d) { return ""; },
+  "pizzaBuilder.size_label_30": function(d) { return ""; },
+  "pizzaBuilder.size_label_35": function(d) { return ""; },
+  "pizzaBuilder.size_label_40": function(d) { return ""; },
+  "pizzaBuilder.size_label_6": function(d) { return ""; },
+  "pizzaBuilder.size_label_8": function(d) { return ""; },
+  "pizzaBuilder.size_label_BRD": function(d) { return ""; },
+  "pizzaBuilder.size_label_CL": function(d) { return ""; },
+  "pizzaBuilder.size_label_GR": function(d) { return ""; },
+  "pizzaBuilder.size_label_LG": function(d) { return ""; },
+  "pizzaBuilder.size_label_MD": function(d) { return ""; },
+  "pizzaBuilder.size_label_XL": function(d) { return ""; },
+  "pizzaBuilder.size_large": function(d) { return ""; },
+  "pizzaBuilder.size_lg": function(d) { return ""; },
+  "pizzaBuilder.size_ma11": function(d) { return ""; },
+  "pizzaBuilder.size_ma14": function(d) { return ""; },
+  "pizzaBuilder.size_ma16": function(d) { return ""; },
+  "pizzaBuilder.size_md": function(d) { return ""; },
+  "pizzaBuilder.size_med": function(d) { return "30"; },
+  "pizzaBuilder.size_medium": function(d) { return ""; },
+  "pizzaBuilder.size_sm": function(d) { return ""; },
+  "pizzaBuilder.size_xl": function(d) { return ""; },
+  "pizzaBuilder.size_xlarge": function(d) { return ""; },
+  "pizzaBuilder.sort_by": function(d) { return "Ordenar por"; },
+  "pizzaBuilder.sort_toppings": function(d) { return ""; },
+  "pizzaBuilder.topping_required_C": function(d) { return ""; },
+  "pizzaBuilder.topping_side_left": function(d) { return "Left"; },
+  "pizzaBuilder.topping_side_right": function(d) { return "Right"; },
+  "pizzaBuilder.topping_side_whole": function(d) { return "Whole"; },
+  "pizzaBuilder.weight_hash_double_description": function(d) { return "Extra: 2x"; },
+  "pizzaBuilder.weight_hash_double_prefix": function(d) { return "Extra: 2x"; },
+  "pizzaBuilder.weight_hash_extra_description": function(d) { return "Extra: 1x"; },
+  "pizzaBuilder.weight_hash_extra_prefix": function(d) { return "Extra: 1x"; },
+  "pizzaBuilder.weight_hash_light_description": function(d) { return "Pouco"; },
+  "pizzaBuilder.weight_hash_light_prefix": function(d) { return "Pouco "; },
+  "pizzaBuilder.weight_hash_none_description": function(d) { return "Nenhum"; },
+  "pizzaBuilder.weight_hash_none_prefix": function(d) { return "Sem "; },
+  "pizzaBuilder.weight_hash_normal_description": function(d) { return "Normal"; },
+  "pizzaBuilder.weight_hash_normal_prefix": function(d) { return "Normal"; },
+  "pizzaBuilder.weight_hash_triple_description": function(d) { return "Extra: 3x"; },
+  "pizzaBuilder.weight_hash_triple_prefix": function(d) { return "Extra: 3x"; },
+  "pizzaBuilder.whole": function(d) { return "Inteira"; }
+}
+}
+);

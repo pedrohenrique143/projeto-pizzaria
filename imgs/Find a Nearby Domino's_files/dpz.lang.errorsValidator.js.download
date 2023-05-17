@@ -1,0 +1,91 @@
+define([], function anonymous(
+) {
+var pluralFuncs = {
+  pt: function(n, ord) {
+    var s = String(n).split('.'), t0 = Number(s[0]) == n;
+    if (ord) return 'other';
+    return ((t0 && n >= 0 && n <= 2) && n != 2) ? 'one' : 'other';
+  }
+};
+var fmt = {};
+var number = function(value, offset) {
+  if (isNaN(value)) throw new Error("'" + value + "' isn't a number.");
+  return value - (offset || 0);
+};
+var plural = function(value, offset, lcfunc, data, isOrdinal) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  if (offset) value -= offset;
+  var key = lcfunc(value, isOrdinal);
+  if (key in data) return data[key]();
+  return data.other();
+};
+var select = function(value, data) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  return data.other()
+};
+
+return {
+  "errorsValidator.CNPJValidator": function(d) { return "Digite CNPJ válido"; },
+  "errorsValidator.CPFValidator": function(d) { return "Digite CPF válido"; },
+  "errorsValidator.CodFiscale": function(d) { return ""; },
+  "errorsValidator.PIVA": function(d) { return ""; },
+  "errorsValidator.accept": function(d) { return "Por Favor insira um valor com uma extensão válida."; },
+  "errorsValidator.alphaNumeric": function(d) { return "This field only accepts numbers and letters"; },
+  "errorsValidator.ccLength": function(d) { return ""; },
+  "errorsValidator.ccValidation": function(d) { return ""; },
+  "errorsValidator.countryCodePhonePattern": function(d) { return ""; },
+  "errorsValidator.creditcard": function(d) { return "Por Favor insira o número de cartão de crédito válido."; },
+  "errorsValidator.cvv": function(d) { return "Please enter a valid security code."; },
+  "errorsValidator.date": function(d) { return "Por Favor, insira uma data válida."; },
+  "errorsValidator.dateISO": function(d) { return "Por Favor insira uma data válida (ISO)."; },
+  "errorsValidator.datemm": function(d) { return "Invalid format. please use MM"; },
+  "errorsValidator.dateyy": function(d) { return "Invalid format. please use YY"; },
+  "errorsValidator.digits": function(d) { return "Por favor insira só números."; },
+  "errorsValidator.dniNumber": function(d) { return ""; },
+  "errorsValidator.email": function(d) { return "Por Favor insira um e-mail que seja válido."; },
+  "errorsValidator.emailOptIn": function(d) { return "Este campo é obrigatório."; },
+  "errorsValidator.equalTo": function(d) { return "Por favor insira o mesmo valor novamente."; },
+  "errorsValidator.equalToCI": function(d) { return "Por favor insira o mesmo valor novamente."; },
+  "errorsValidator.expirationdate": function(d) { return "A data de expiração deve de ser futura."; },
+  "errorsValidator.future_time": function(d) { return ""; },
+  "errorsValidator.gültigNIF": function(d) { return ""; },
+  "errorsValidator.invalid_card_holder": function(d) { return "Portador de cartão inválido"; },
+  "errorsValidator.invalid_mobile_number": function(d) { return "Número de celular inválido"; },
+  "errorsValidator.max": function(d) { return "Por Favor insira um valor menos ou igual a  " + d["1"] + "."; },
+  "errorsValidator.maxlength": function(d) { return "Por favor insira um valor não superior do que " + d["1"] + " caracteres."; },
+  "errorsValidator.min": function(d) { return "Por favor insira um valor maior ou igual do que " + d["1"] + "."; },
+  "errorsValidator.minlength": function(d) { return "Por favor insira pelo menos " + d["0"] + " caracteres."; },
+  "errorsValidator.moreThanOrderAmount": function(d) { return "Amount entered must be greater than order amout"; },
+  "errorsValidator.nameContainsAlpha": function(d) { return "Valid name required"; },
+  "errorsValidator.nitNumber": function(d) { return ""; },
+  "errorsValidator.number": function(d) { return "Por Favor insira um número válido."; },
+  "errorsValidator.oibError": function(d) { return "Please enter a valid OIB Code"; },
+  "errorsValidator.otp_validation_required_for_create_profile": function(d) { return ""; },
+  "errorsValidator.otp_validation_required_for_place_order": function(d) { return ""; },
+  "errorsValidator.otp_validation_required_for_update_profile": function(d) { return ""; },
+  "errorsValidator.passportValidation": function(d) { return "Please enter a valid passport."; },
+  "errorsValidator.phone": function(d) { return "Introduza um número válido por favor!"; },
+  "errorsValidator.postalcode": function(d) { return "Por Favor insira um código de postal válido."; },
+  "errorsValidator.qitaf_code_request": function(d) { return ""; },
+  "errorsValidator.qitaf_max_amount": function(d) { return ""; },
+  "errorsValidator.qitaf_otp_request": function(d) { return ""; },
+  "errorsValidator.qitaf_otp_required": function(d) { return ""; },
+  "errorsValidator.qitaf_phone_required": function(d) { return ""; },
+  "errorsValidator.range": function(d) { return "Por Favor insira um valor entre " + d["1"] + " e " + d["2"] + "."; },
+  "errorsValidator.rangelength": function(d) { return "Por favor insira um valor entre " + d["1"] + " e " + d["2"] + " com tamanho de caracteres."; },
+  "errorsValidator.remote": function(d) { return "Por favor corriga este campo."; },
+  "errorsValidator.required": function(d) { return "Este campo é obrigatório."; },
+  "errorsValidator.requiredCharacters": function(d) { return "The value must have at least one uppercase letter, one lowercase letter, one number, and one special character."; },
+  "errorsValidator.rncNumber": function(d) { return "O numero RNC é invalido. Insira um valor válido de 9 ou 11 números."; },
+  "errorsValidator.rtnNumber": function(d) { return ""; },
+  "errorsValidator.rucNumber": function(d) { return ""; },
+  "errorsValidator.rucValidation": function(d) { return ""; },
+  "errorsValidator.sadad_OLP_valid": function(d) { return ""; },
+  "errorsValidator.streetNumber": function(d) { return "Please enter a valid street number"; },
+  "errorsValidator.uniqueAddress": function(d) { return "É o nome que está a usar."; },
+  "errorsValidator.uniqueCard": function(d) { return "Esse é o nome que está a usar."; },
+  "errorsValidator.url": function(d) { return "Por Favor insira um endereço de site válido."; },
+  "errorsValidator.validNIF": function(d) { return "Por favor insira um NIF válido (9 digitos)."; }
+}
+}
+);

@@ -1,0 +1,108 @@
+define("markettemplates/firstAndLastName", [
+    "marketconfig/dpz.lang.errors",
+    "marketconfig/dpz.lang.customer",
+    "handlebars.runtime"
+], function(errorsStrings, customerStrings, Handlebars) {
+      return { name: "firstAndLastName", template: Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    return " <div class=\"grid__cell--1\"> <p class=\"note\">"
+    + container.escapeExpression(helpers.t.call(
+        depth0 != null ? depth0 : (container.nullContext || {}),
+        "errors.eRequiredFields",
+        {"name":"t","hash":{},"data":data},
+        errorsStrings
+    ))
+    + " </p> </div> ";
+},"3":function(container,depth0,helpers,partials,data) {
+    return " js-staticCheckoutFloatingLabels floating-label ";
+},"5":function(container,depth0,helpers,partials,data) {
+    return " grid "
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.customClass : depth0), depth0))
+    + " ";
+},"7":function(container,depth0,helpers,partials,data) {
+    var alias1=container.propertyIsEnumerable, alias2=container.escapeExpression;
+
+  return " <input type=\"text\" id=\"First_Name\" name=\"First_Name\" maxlength=\"40\" class=\"floating-label__input c-customerprofile-firstname js-profileFirstName\" value=\""
+    + alias2(container.lambda((depth0 != null ? depth0.firstName : depth0), depth0))
+    + "\" data-quid=\"first-name\" autocomplete=\"given-name\" placeholder=\"First Name\" /> <label for=\"First_Name\" class=\"floating-label__label\"> <i class=\"rqd\">*</i>"
+    + alias2(helpers.t.call(
+      depth0 != null ? depth0 : (container.nullContext || {}),
+      "customer.first_name",
+      {"name":"t","hash":{},"data":data},
+      customerStrings
+  ))
+    + ": </label> ";
+},"9":function(container,depth0,helpers,partials,data) {
+    var alias1=container.propertyIsEnumerable, alias2=container.escapeExpression;
+
+  return " <label for=\"First_Name\" class=\"grid__cell--1 grid__cell--2/5@desktop grid__cell--1/5@kiosk\"> <i class=\"rqd\">*</i>"
+    + alias2(helpers.t.call(
+      depth0 != null ? depth0 : (container.nullContext || {}),
+      "customer.first_name",
+      {"name":"t","hash":{},"data":data},
+      customerStrings
+  ))
+    + ": </label> <input type=\"text\" id=\"First_Name\" name=\"First_Name\" maxlength=\"40\" class=\"grid__cell--1 grid__cell--3/5@desktop grid__cell--4/5@kiosk c-customerprofile-firstname js-profileFirstName\" value=\""
+    + alias2(container.lambda((depth0 != null ? depth0.firstName : depth0), depth0))
+    + "\" data-quid=\"first-name\" autocomplete=\"given-name\" /> ";
+},"11":function(container,depth0,helpers,partials,data) {
+    return "js-staticCheckoutFloatingLabels floating-label ";
+},"13":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable, alias2=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return " <input type=\"text\" id=\"Last_Name\" name=\"Last_Name\" "
+    + ((stack1 = helpers.unlessKillSwitch.call(alias2,"customerLegacyName",{"name":"unlessKillSwitch","hash":{},"fn":container.program(14, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " maxlength=\""
+    + ((stack1 = helpers.ifKillSwitch.call(alias2,"customerLegacyName",{"name":"ifKillSwitch","hash":{},"fn":container.program(16, data, 0),"inverse":container.program(18, data, 0),"data":data})) != null ? stack1 : "")
+    + "\" class=\"floating-label__input c-customerprofile-lastname js-profileLastName\" value=\""
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.lastName : depth0), depth0))
+    + "\" data-quid=\"last-name\" autocomplete=\"family-name\" placeholder=\"Last Name\" /> <label for=\"Last_Name\" class=\"floating-label__label\"> <i class=\"rqd\">*</i>"
+    + ((stack1 = helpers.ifKillSwitch.call(alias2,"customerLegacyName",{"name":"ifKillSwitch","hash":{},"fn":container.program(20, data, 0),"inverse":container.program(22, data, 0),"data":data})) != null ? stack1 : "")
+    + ": </label> ";
+},"14":function(container,depth0,helpers,partials,data) {
+    return " oninput=\"site.func.removeDigitsFromValue(event)\" ";
+},"16":function(container,depth0,helpers,partials,data) {
+    return "40";
+},"18":function(container,depth0,helpers,partials,data) {
+    return "50";
+},"20":function(container,depth0,helpers,partials,data) {
+    return container.escapeExpression(helpers.t.call(
+        depth0 != null ? depth0 : (container.nullContext || {}),
+        "customer.last_name",
+        {"name":"t","hash":{},"data":data},
+        customerStrings
+    ));
+},"22":function(container,depth0,helpers,partials,data) {
+    return container.escapeExpression(helpers.t.call(
+        depth0 != null ? depth0 : (container.nullContext || {}),
+        "customer.full_name",
+        {"name":"t","hash":{},"data":data},
+        customerStrings
+    ));
+},"24":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable, alias2=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return " <label for=\"Last_Name\" class=\"grid__cell--1 grid__cell--2/5@desktop grid__cell--1/5@kiosk\"> <i class=\"rqd\">*</i>"
+    + ((stack1 = helpers.ifKillSwitch.call(alias2,"customerLegacyName",{"name":"ifKillSwitch","hash":{},"fn":container.program(20, data, 0),"inverse":container.program(22, data, 0),"data":data})) != null ? stack1 : "")
+    + ": </label> <input type=\"text\" id=\"Last_Name\" name=\"Last_Name\" "
+    + ((stack1 = helpers.unlessKillSwitch.call(alias2,"customerLegacyName",{"name":"unlessKillSwitch","hash":{},"fn":container.program(14, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " maxlength=\""
+    + ((stack1 = helpers.ifKillSwitch.call(alias2,"customerLegacyName",{"name":"ifKillSwitch","hash":{},"fn":container.program(16, data, 0),"inverse":container.program(18, data, 0),"data":data})) != null ? stack1 : "")
+    + "\" class=\"grid__cell--1 grid__cell--3/5@desktop grid__cell--4/5@kiosk c-customerprofile-lastname js-profileLastName\" value=\""
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.lastName : depth0), depth0))
+    + "\" data-quid=\"last-name\" autocomplete=\"family-name\" /> ";
+},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable, alias2=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return " "
+    + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.requiredFieldNote : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " <div class=\"form__control-group "
+    + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.floatingLabelTextbox : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\"> "
+    + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.floatingLabelTextbox : depth0),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.program(9, data, 0),"data":data})) != null ? stack1 : "")
+    + " </div> <div class=\"form__control-group "
+    + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.floatingLabelTextbox : depth0),{"name":"if","hash":{},"fn":container.program(11, data, 0),"inverse":container.program(5, data, 0),"data":data})) != null ? stack1 : "")
+    + "\"> "
+    + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.floatingLabelTextbox : depth0),{"name":"if","hash":{},"fn":container.program(13, data, 0),"inverse":container.program(24, data, 0),"data":data})) != null ? stack1 : "")
+    + " </div>";
+},"useData":true}) };
+    });

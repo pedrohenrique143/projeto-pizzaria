@@ -1,0 +1,158 @@
+define([], function anonymous(
+) {
+var pluralFuncs = {
+  pt: function(n, ord) {
+    var s = String(n).split('.'), t0 = Number(s[0]) == n;
+    if (ord) return 'other';
+    return ((t0 && n >= 0 && n <= 2) && n != 2) ? 'one' : 'other';
+  }
+};
+var fmt = {};
+var number = function(value, offset) {
+  if (isNaN(value)) throw new Error("'" + value + "' isn't a number.");
+  return value - (offset || 0);
+};
+var plural = function(value, offset, lcfunc, data, isOrdinal) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  if (offset) value -= offset;
+  var key = lcfunc(value, isOrdinal);
+  if (key in data) return data[key]();
+  return data.other();
+};
+var select = function(value, data) {
+  if ({}.hasOwnProperty.call(data, value)) return data[value]();
+  return data.other()
+};
+
+return {
+  "ccpa.and": function(d) { return "and"; },
+  "ccpa.authorization_body": function(d) { return "Let’s make sure it’s you for security purposes (we take this seriously). Select one of the verification options below to get a code sent to you. Please note you’ll have to use contact information associated with a previous Domino’s order."; },
+  "ccpa.authorization_body_opt_out": function(d) { return "To opt-out of selling your personal information, we'll need to make sure it's you."; },
+  "ccpa.authorization_opt_out_via_email": function(d) { return ""; },
+  "ccpa.authorization_phone_request": function(d) { return "To make a request as an agent or if you don’t have a phone number or email address, please contact our Customer Support team: <a href='tel:7349303030`>(734) 930-3030</a>."; },
+  "ccpa.authorization_verify_with_email": function(d) { return "I want to verify with my email address."; },
+  "ccpa.authorization_verify_with_login": function(d) { return "I want to verify with my Pizza Profile login."; },
+  "ccpa.authorization_verify_with_phone": function(d) { return "I want to verify with my phone number."; },
+  "ccpa.back": function(d) { return "Back"; },
+  "ccpa.call_us_card_body": function(d) { return "Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, non labore? Ducimus aliquid laborum esse, illo reprehenderit repudiandae aperiam, obcaecati minima quo quisquam eligendi nisi fugit soluta officia? Voluptates, perspiciatis."; },
+  "ccpa.call_us_card_phone": function(d) { return "1-800-555-3434"; },
+  "ccpa.call_us_card_title": function(d) { return "None of the above? Please call us"; },
+  "ccpa.cancel": function(d) { return "Cancel"; },
+  "ccpa.city": function(d) { return "City of most recent purchase:"; },
+  "ccpa.city_label": function(d) { return "City:"; },
+  "ccpa.confirmation_additional_body_delete": function(d) { return "Please note the information you provided will identify orders tied to your email address or phone number. If you've ever used another email address or phone number when ordering from Domino's, you'll need to submit a separate request with that email address or phone number."; },
+  "ccpa.confirmation_additional_body_email": function(d) { return "Please note the information you provided will identify orders tied to your email address. If you've ever used another email address when ordering from Domino's, you'll need to submit a separate request with that email address."; },
+  "ccpa.confirmation_additional_body_phone": function(d) { return "Please note the information you provided will identify orders tied to your phone number. If you've ever used another phone number when ordering from Domino's, you'll need to submit a separate request with that phone number."; },
+  "ccpa.confirmation_body": function(d) { return "Your request has been processed. A message will be sent to you when the data is ready."; },
+  "ccpa.confirmation_body_categories": function(d) { return "You’ll receive a confirmation email of this request and you should expect to receive another email within 45 days from noreply@dominos.com to notify you when the categories of personal information collected are ready to view."; },
+  "ccpa.confirmation_body_delete": function(d) { return ""; },
+  "ccpa.confirmation_body_opt_out": function(d) { return "You'll receive a confirmation email of this request from noreply@dominos.com."; },
+  "ccpa.confirmation_request_received": function(d) { return "Your request has been received"; },
+  "ccpa.contact_options_body_ask_email": function(d) { return "Provide an email address where we can notify you when your personal information is ready to view."; },
+  "ccpa.contact_options_body_ask_email_delete": function(d) { return "Provide an email address where we can notify you when your personal information has been deleted."; },
+  "ccpa.contact_options_body_opt_out": function(d) { return "You're almost done! We have all the information needed to submit your opt-out request."; },
+  "ccpa.contact_options_body_profiled": function(d) { return "We'll send you an email once your data is ready to view. Please complete the data request below."; },
+  "ccpa.contact_options_body_profiled_delete": function(d) { return "<p class=\"ccpa__paragraph\">Please complete the request below to delete your personal information. We'll send you an email once your request is complete.</p>"; },
+  "ccpa.contact_options_complete_request_below": function(d) { return "Please complete the request below to delete your personal information."; },
+  "ccpa.contact_options_delete_acknowledgement": function(d) { return "I understand everything will be permanently deleted"; },
+  "ccpa.contact_options_delete_are_you_sure": function(d) { return "Are you sure you want to delete your personal information?"; },
+  "ccpa.contact_options_delete_item_1": function(d) { return "Piece of the Pie Rewards® account along with any unused point balances will be deleted"; },
+  "ccpa.contact_options_delete_item_2": function(d) { return "Easy Order"; },
+  "ccpa.contact_options_delete_item_3": function(d) { return "Linked AnyWare Devices"; },
+  "ccpa.contact_options_delete_request": function(d) { return "Delete Request"; },
+  "ccpa.contact_options_disclaimer": function(d) { return "By submitting this request, I herevy acknowledge under penalty of perjury that I am the consumer whose personal information is the subject of this request."; },
+  "ccpa.contact_options_opt_out_acknowledgement": function(d) { return "Yes, I am sure I want to opt-out of selling my personal information."; },
+  "ccpa.contact_options_request_type_delete": function(d) { return "delete personal data"; },
+  "ccpa.contact_options_request_type_view": function(d) { return "data"; },
+  "ccpa.contact_options_title": function(d) { return "How would you like to be contacted?"; },
+  "ccpa.contact_options_to_finish": function(d) { return "To finish, please submit the request below."; },
+  "ccpa.contact_options_whats_next": function(d) { return "<h3 class=\"ccpa__sub-title\">What to expect:</h3><ul class=\"ccpa__list\"><li>You'll receive conformation of this request once it is complete along with details on information that is no longer shared.</li><li>We'll notify all 3rd party vendors with whom we've sold your personal information to.</li><li>This opt-out of the sale of personal information request is only valid on this device and due to technical limitations of our current system will expire if you clear your device's cookies or go into private browsing. We are working on a technical solution to allow customers with a pizza profile to opt-out across all Domino's online ordering channels and will provide notice of this in our privacy policy once it is available.</li></ul>"; },
+  "ccpa.delete_my_info": function(d) { return "Delete my info"; },
+  "ccpa.description": function(d) { return "Adipisicing eu velit exercitation consequat sit consequat proident veniam pariatur adipisicing elit ea. Pariatur sint aute esse et dolore dolore id commodo adipisicing. Cupidatat reprehenderit laboris voluptate enim sint id incididunt. Elit quis fugiat dolore anim. Dolore mollit nisi consectetur laboris tempor sint deserunt consequat dolore. Nulla anim exercitation laborum labore aliqua deserunt adipisicing et veniam sit Lorem deserunt. Enim sunt exercitation esse anim quis magna qui nostrud dolor adipisicing."; },
+  "ccpa.do_not_sell_my_info": function(d) { return "Do Not Sell My Personal Information"; },
+  "ccpa.dominos_homepage": function(d) { return "Domino's Home Page"; },
+  "ccpa.dominos_privacy": function(d) { return "Privacy Policy"; },
+  "ccpa.download_data_body_text": function(d) { return "Your information you requested is ready to view. Please only download your personal information on your personal computer or device."; },
+  "ccpa.download_data_cta_text": function(d) { return "Download your info"; },
+  "ccpa.edit_personal_info": function(d) { return "You may correct your personal information by logging in to the Pizza Profile and using the edit feature to make corrections. Any additional requests to correct your personal information can be made by emailing <a href=\"mailto:privacy@dominos.com\">privacy@dominos.com.</a>"; },
+  "ccpa.email": function(d) { return "Email"; },
+  "ccpa.email_address": function(d) { return "Email Address:"; },
+  "ccpa.email_address_confirmation": function(d) { return "Confirm Email Address:"; },
+  "ccpa.email_address_last_order": function(d) { return "Email address used on my last Domino's Order"; },
+  "ccpa.email_card_title": function(d) { return "Don't have a Pizza Profile, but have placed an online order? Please provide your email address"; },
+  "ccpa.enter_code": function(d) { return "Enter code here:"; },
+  "ccpa.error_all_fields_required": function(d) { return "All fields are required"; },
+  "ccpa.error_authenticate": function(d) { return "Uh oh. Something’s not right. Try again in a few minutes."; },
+  "ccpa.error_customer_login": function(d) { return "There was a problem signing you in, please check your credentials."; },
+  "ccpa.error_data_expired": function(d) { return "Data has expired."; },
+  "ccpa.error_emails_must_match": function(d) { return "Please make sure both emails match"; },
+  "ccpa.error_generic": function(d) { return "Uh oh. Something’s not right. Try again in a few minutes."; },
+  "ccpa.error_invalid_code": function(d) { return "The code you entered is invalide. Please try again."; },
+  "ccpa.error_invalid_email": function(d) { return "Please enter a valid email address"; },
+  "ccpa.error_invalid_phone": function(d) { return "Please enter a valid 10-digit phone number"; },
+  "ccpa.error_invalid_zip": function(d) { return "Please enter a valid 5-digit zip code"; },
+  "ccpa.error_max_limit_exceeded": function(d) { return "Oh no! You’ve exceeded your number of verification attempts."; },
+  "ccpa.error_numbers_only": function(d) { return "Por favor, insira um código (numérico) de " + d.digitsNumber + " dígitos."; },
+  "ccpa.error_phones_must_match": function(d) { return "Please make sure both phone numbers match"; },
+  "ccpa.error_recaptcha": function(d) { return "Please check the reCAPTCHA challenge"; },
+  "ccpa.error_service_down": function(d) { return "Well, this is awkward. Service is temporarily down. Try again in a few minutes."; },
+  "ccpa.error_submit_request": function(d) { return "Ops! Algo não está certo. Tente novamente em alguns minutos."; },
+  "ccpa.error_two_factor": function(d) { return "Uh oh. Something’s not right. Try again in a few minutes."; },
+  "ccpa.error_user_not_found": function(d) { return "No matches were found based on the information provided. Check that the information provided in each of the fields is correct."; },
+  "ccpa.first_name": function(d) { return "First Name:"; },
+  "ccpa.hey": function(d) { return "Hey"; },
+  "ccpa.identification_instructions_categories": function(d) { return "We’ll need to collect additional pieces of information to ensure we’re retrieving data that pertains to you. Please provide one additional data point associated with your last Domino’s order to view categories of personal information collected."; },
+  "ccpa.identification_instructions_delete_data": function(d) { return "We’ll need to collect additional pieces of information to ensure we’re retrieving data that pertains to you. Please provide two additional data points associated with your last Domino’s order to delete personal information collected."; },
+  "ccpa.identification_instructions_view_data": function(d) { return "We’ll need to collect additional pieces of information to ensure we’re retrieving data that pertains to you. Please provide two additional data points associated with your last Domino’s order to view categories of personal information collected."; },
+  "ccpa.identification_label_first_name": function(d) { return "First Name"; },
+  "ccpa.identification_label_last_name": function(d) { return "Last Name"; },
+  "ccpa.identification_label_name": function(d) { return "Full Name"; },
+  "ccpa.identification_label_phone": function(d) { return "Phone Number"; },
+  "ccpa.identification_label_zip_code": function(d) { return "Zip Code*"; },
+  "ccpa.identification_option_1": function(d) { return "Option 1"; },
+  "ccpa.identification_option_2": function(d) { return "Option 2"; },
+  "ccpa.identification_option_3": function(d) { return "Option 3"; },
+  "ccpa.identification_title": function(d) { return "Please select two of the following options"; },
+  "ccpa.identification_zip_code_note": function(d) { return "Zip code of your last delivery address or store where the order was placed."; },
+  "ccpa.last_name": function(d) { return "Last Name"; },
+  "ccpa.mobile_phone": function(d) { return "Mobile Phone Number:"; },
+  "ccpa.mobile_phone_card_title": function(d) { return "Haven't placed an online order? No problem, please provide a phone number"; },
+  "ccpa.mobile_phone_confirmation": function(d) { return "Confirm phone number"; },
+  "ccpa.mobile_phone_disclaimer": function(d) { return "Message and data rates may apply. If you provide a land line number, you'll receive an automated phone call with a verification code."; },
+  "ccpa.next": function(d) { return "Next"; },
+  "ccpa.no": function(d) { return "Não"; },
+  "ccpa.opt_out_footer_link_text": function(d) { return "Do Not Sell/Share My Info"; },
+  "ccpa.opt_out_modal_body": function(d) { return "Are you sure you want to opt-out of selling your personal information?"; },
+  "ccpa.opt_out_modal_body_are_you_sure": function(d) { return "Are you sure you want to opt-out of sharing (selling) your personal information?"; },
+  "ccpa.opt_out_modal_no": function(d) { return "No"; },
+  "ccpa.opt_out_modal_yes": function(d) { return "Yes, let me proceed with submitting my request"; },
+  "ccpa.or": function(d) { return "Or"; },
+  "ccpa.page_title": function(d) { return "Domino's | Consumer Rights"; },
+  "ccpa.password": function(d) { return "Password"; },
+  "ccpa.physical_address": function(d) { return "Physical Mailing Address"; },
+  "ccpa.proceed": function(d) { return "Proceed"; },
+  "ccpa.request_delete_data": function(d) { return "Delete Private Data"; },
+  "ccpa.request_view_data": function(d) { return "View Private Data"; },
+  "ccpa.request_view_data_categories": function(d) { return "View Data Categories"; },
+  "ccpa.request_view_private_data": function(d) { return "View Private Data"; },
+  "ccpa.resend_code": function(d) { return "Resend Code"; },
+  "ccpa.sign_in": function(d) { return "Sign In"; },
+  "ccpa.sign_in_card_title": function(d) { return "If you have a Pizza Profile, please sign in"; },
+  "ccpa.state": function(d) { return "State:"; },
+  "ccpa.street_name": function(d) { return "Street Name:"; },
+  "ccpa.submit": function(d) { return "Submit"; },
+  "ccpa.submit_request": function(d) { return "Submit Request"; },
+  "ccpa.three": function(d) { return "three"; },
+  "ccpa.title": function(d) { return "CA Consumer Privacy Act"; },
+  "ccpa.title_opt_out": function(d) { return ""; },
+  "ccpa.two": function(d) { return "two"; },
+  "ccpa.two_factor_phone_disclaimer": function(d) { return "Don't worry, we're only using this number to verify it's you and won't use it for any other data purposes."; },
+  "ccpa.two_factor_phone_disclaimer_phone": function(d) { return "Don't worry, we're only using this number to verify it's you and won't use it for any other data purposes."; },
+  "ccpa.two_factor_sent_confirmation": function(d) { return "We sent a confirmation message to:"; },
+  "ccpa.two_factor_sent_confirmation_phone": function(d) { return "Check your phone. We sent a text message with a verification code to:"; },
+  "ccpa.verify": function(d) { return "Verify"; },
+  "ccpa.view_categories_title": function(d) { return "View Categories of Data"; },
+  "ccpa.zip_code": function(d) { return "Zip Code:"; }
+}
+}
+);

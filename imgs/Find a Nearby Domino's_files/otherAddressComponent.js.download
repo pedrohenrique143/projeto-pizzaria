@@ -1,0 +1,42 @@
+define("markettemplates/otherAddressComponent", [
+  "marketconfig/dpz.lang.forms",
+  "marketconfig/dpz.lang.locations",
+  "handlebars.runtime"
+], function(formsStrings, locationsStrings, Handlebars) {
+      return { name: "otherAddressComponent", template: Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable, alias2=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return " <div class=\"requiredFieldsText js-requiredFieldsText\"> <strong> * </strong> <span> "
+    + container.escapeExpression(helpers.t.call(
+    alias2,
+    "forms.indicates_required_field",
+    {"name":"t","hash":{},"data":data},
+    formsStrings
+  ))
+    + " </span> </div> <p class=\"js-deliveryLocatorNotes is-hidden other-address-fields__delivery-notes\" > "
+    + ((stack1 = helpers.t.call(
+    alias2,
+    "locations.note_delivery",
+    {"name":"t","hash":{},"data":data},
+    locationsStrings
+  )) != null ? stack1 : "")
+    + " </p> ";
+},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.propertyIsEnumerable, alias2=container.lambda, alias3=container.escapeExpression, alias4=depth0 != null ? depth0 : (container.nullContext || {});
+
+  return " <div class=\"card__list-item other-address "
+    + alias3(alias2((depth0 != null ? depth0.otherDisplay : depth0), depth0))
+    + "\"> <label class=\"form__control-group--toggle\"> <!-- value of this field gets set upon form submit to __OTHER_ADDRESS__ --> <input type=\"radio\" class=\"selection js-showOtherAddress c-showOtherAddress\" name=\"Address_Selection\" /> "
+    + alias3(helpers.t.call(
+    alias4,
+    "locations.use_other_address",
+    {"name":"t","hash":{},"data":data},
+    locationsStrings
+  ))
+    + " </label> </div> <div class=\"other-address-fields js-otherAddress\"> "
+    + ((stack1 = alias2((depth0 != null ? depth0.addressFields : depth0), depth0)) != null ? stack1 : "")
+    + " "
+    + ((stack1 = helpers.unless.call(alias4,(depth0 != null ? depth0.isLocationsPage : depth0),{"name":"unless","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " </div>";
+},"useData":true}) };
+    });

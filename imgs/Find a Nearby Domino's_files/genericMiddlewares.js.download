@@ -1,0 +1,1 @@
+define("segment/genericMiddlewares",[],function(){return[function(e){var n,t=e.payload,o=e.next;null!==(n=t.obj.properties)&&void 0!==n&&n.segment_event&&(t.obj.name=t.obj.properties.segment_event),o(t)}]});

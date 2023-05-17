@@ -1,0 +1,1 @@
+define("dpz.couponServiceMethodWarning",[],function(){var o=[];return{validateCouponServiceMethod:function(e){var n=e.handleChange,r=e.serviceMethod;if(r!==jsDPZ.app.order.getOrder().data.Details.ServiceMethod){var a={handleChange:n,serviceMethod:r};o.map(function(e){return e(a)}).every(Boolean)&&n()}else n()}}});
